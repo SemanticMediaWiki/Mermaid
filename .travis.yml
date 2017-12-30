@@ -1,0 +1,33 @@
+# http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+language: php
+
+matrix:
+  fast_finish: true
+  include:
+    - env: DB=mysql; MW=REL1_27 TYPE=coverage
+      php: 5.6
+    - env: DB=sqlite; MW=REL1_29;
+      php: 5.6
+    - env: DB=mysql; MW=master
+      php: 7.1
+
+install:
+  - bash ./tests/travis/install-mediawiki.sh
+  - bash ./tests/travis/install-mermaid.sh
+
+script:
+  - bash ./tests/travis/run-tests.sh
+
+after_success:
+  - bash ./tests/travis/upload-coverage-report.sh
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+cache:
+  directories:
+    - $HOME/.composer/cache

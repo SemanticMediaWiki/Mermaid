@@ -1,0 +1,41 @@
+{
+	"name": "mediawiki/mermaid",
+	"type": "mediawiki-extension",
+	"description": "Provides a parser function to generate diagrams and flowcharts with the help of the mermaid script language",
+	"keywords": [
+		"mediawiki",
+		"mermaid",
+		"parser function"
+	],
+	"homepage": "https://github.com/SemanticMediaWiki/Mermaid",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "mwjames",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.6.0",
+		"composer/installers": "1.*,>=1.0.1"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.x-dev"
+		}
+	},
+	"autoload": {
+		"files" : [
+			"Mermaid.php"
+		],
+		"psr-4": {
+			"Mermaid\\": "src/"
+		}
+	},
+	"config": {
+		"process-timeout": 0
+	},
+	"scripts":{
+		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist"
+	}
+}

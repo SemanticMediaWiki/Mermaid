@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"mwjames"
+		]
+	},
+	"mermaid-desc": "Provides a parser function to help generate diagrams and flowcharts using the [https://mermaidjs.github.io/ mermaid] script language"
+}

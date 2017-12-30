@@ -1,0 +1,110 @@
+<?php
+
+namespace Mermaid;
+
+use Parser;
+use Html;
+
+/**
+ * @license GNU GPL v2+
+ * @since 1.0
+ *
+ * @author mwjames
+ */
+class MermaidParserFunction {
+
+	/**
+	 * @var Parser
+	 */
+	private $parser;
+
+	/**
+	 * @var string
+	 */
+	private $defaultTheme = '';
+
+	/**
+	 * @since  1.0
+	 *
+	 * @return Parser $parser
+	 */
+	public function __construct( Parser $parser ) {
+		$this->parser = $parser;
+	}
+
+	/**
+	 * @since  1.0
+	 *
+	 * @param string $defaultTheme
+	 */
+	public function setDefaultTheme( $defaultTheme ) {
+		$this->defaultTheme = $defaultTheme;
+	}
+
+	/**
+	 * @since  1.0
+	 *
+	 * @param array $params
+	 *
+	 * @return string
+	 */
+	public function parse( array $params ) {
+
+		$class = 'ext-mermaid';
+		$id = 'ext-mermaid-' . uniqid();
+
+		if( isset( $params[0] ) && $params[0] instanceof \Parser ) {
+			array_shift( $params );
+		}
+
+		// Signal the OutputPageParserOutput hook
+		$this->parser->getOutput()->setExtensionData(
+			'ext-mermaid',
+			true
+		);
+
+		$this->parser->getOutput()->addModuleStyles(
+			'ext.mermaid.styles'
+		);
+
+		$this->parser->getOutput()->addModules(
+			'ext.mermaid'
+		);
+
+		$config = [
+			'theme' => $this->defaultTheme
+		];
+
+		foreach ( $params as $param ) {
+			if ( strpos( $param, '=' ) !== false ) {
+				list( $k, $v ) = explode( '=', $param, 2 );
+
+				if ( $k === 'theme' ) {
+					$config['theme'] = $v;
+				}
+			}
+		}
+
+		$content = isset( $params[0] ) ? $params[0] : '';
+
+		// Sanitize user input
+		$content = json_decode( json_encode( $content ) );
+
+		return Html::rawElement(
+			'div',
+			[
+				'id' => $id,
+				'class' => $class,
+				'data-diagram' => $content,
+				'data-config' => json_encode( $config ),
+			],
+			Html::rawElement(
+				'div',
+				[
+					'class' => 'mermaid-dots',
+				]
+			)
+		);
+	}
+
+}
