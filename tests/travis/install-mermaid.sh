@@ -63,7 +63,7 @@ function updateConfiguration {
 	echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 	echo "putenv( 'MW_INSTALL_PATH=$(pwd)' );" >> LocalSettings.php
 
-	echo "wfLoadExtension( 'Mermaid' )" >> LocalSettings.php
+	echo "wfLoadExtension( 'Mermaid' );" >> LocalSettings.php
 
 	php maintenance/update.php --quick
 }
