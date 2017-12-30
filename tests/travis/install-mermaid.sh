@@ -25,7 +25,7 @@ function installToMediaWikiRoot {
 		composer require "mediawiki/mermaid:dev-master" --dev --update-with-dependencies
 
 		cd extensions
-		cd WhatsNearby
+		cd Mermaid
 
 		# Pull request number, "false" if it's not a pull request
 		# After the install via composer an additional get fetch is carried out to
