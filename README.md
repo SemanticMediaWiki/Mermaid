@@ -37,7 +37,7 @@ an entry in MediaWiki's `composer.json` or `composer.local.json`.
 
 ## Usage
 
-The `#mermaid` parser function allows to add [mermaid][mermaid] typed content seamlessly with a wiki article. For example, copying some of the [official](https://mermaidjs.github.io/) examples is as easy as:
+The `#mermaid` parser function allows to add [mermaid][mermaid] typed content to a wiki article. For example, copying [examples](https://mermaidjs.github.io/) is as easy as:
 
 ```
 {{#mermaid:sequenceDiagram
@@ -53,7 +53,7 @@ participant Bob
     Bob-->John: Jolly good!
 }}
 ```
-![image](https://user-images.githubusercontent.com/1245473/34450800-04cc6122-ed57-11e7-9010-4c32ab5ee2a8.png)
+![image](https://user-images.githubusercontent.com/1245473/34535703-14a32100-f106-11e7-9201-ea90a6286c58.png)
 
 ## Contribution and support
 

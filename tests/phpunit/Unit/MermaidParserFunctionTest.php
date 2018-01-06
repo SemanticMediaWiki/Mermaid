@@ -52,7 +52,7 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertContains(
-			'class="ext-mermaid" data-diagram="sequenceDiagram..." data-config="{&quot;theme&quot;:&quot;foo&quot;}"><div class="mermaid-dots"></div>',
+			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram...&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>',
 			$instance->parse( [ 'sequenceDiagram...', 'theme=foo' ] )
 		);
 	}

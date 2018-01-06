@@ -22,15 +22,14 @@
 		$( '.ext-mermaid' ).each( function() {
 
 			var that = $( this );
-			var id = $( this ).attr( 'id' ) + '-diagram';
 
-			var config = $( this ).data( 'config' );
-			var diagram = $( this ).data( 'diagram' );
+			var id = that.attr( 'id' ) + '-diagram';
+			var data = that.data( 'mermaid' );
 
 			that.find( '.mermaid-dots' ).hide();
-			that.append( '<div id=' + id + '> ' + diagram + ' </div>' );
+			that.append( '<div id=' + id + '> ' + data.content + ' </div>' );
 
-			mermaid.initialize( config );
+			mermaid.initialize( data.config );
 			mermaid.init( undefined, $( "#" + id ) );
 		} );
 	} );
