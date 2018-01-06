@@ -67,7 +67,7 @@ class Mermaid {
 		$GLOBALS['wgResourceModules']['ext.mermaid.theme.default'] = [
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'Mermaid',
-			'position' => 'bottom',
+			'position' => 'top',
 			'styles'   => [
 				'res/mermaid/7.0.5/mermaid.min.css'
 			],
@@ -81,7 +81,7 @@ class Mermaid {
 		$GLOBALS['wgResourceModules']['ext.mermaid.theme.forest'] = [
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'Mermaid',
-			'position' => 'bottom',
+			'position' => 'top',
 			'styles'   => [
 				'res/mermaid/7.0.5/mermaid.forest.min.css'
 			],
@@ -95,7 +95,7 @@ class Mermaid {
 		$GLOBALS['wgResourceModules']['ext.mermaid.theme.dark'] = [
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'Mermaid',
-			'position' => 'bottom',
+			'position' => 'top',
 			'styles'   => [
 				'res/mermaid/7.0.5/mermaid.dark.min.css'
 			],
@@ -109,7 +109,7 @@ class Mermaid {
 		$GLOBALS['wgResourceModules']['ext.mermaid.theme.neutral'] = [
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'Mermaid',
-			'position' => 'bottom',
+			'position' => 'top',
 			'styles'   => [
 				'res/mermaid/7.0.5/mermaid.neutral.min.css'
 			],
@@ -123,7 +123,7 @@ class Mermaid {
 		$GLOBALS['wgResourceModules']['ext.mermaid.d3'] = [
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'Mermaid',
-			'position' => 'bottom',
+			'position' => 'top',
 			'scripts'  => [
 				'res/d3/d3.min.js',
 				'res/d3/dagre-d3.min.js'
@@ -138,7 +138,7 @@ class Mermaid {
 		$GLOBALS['wgResourceModules']['ext.mermaid.core'] = [
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'Mermaid',
-			'position' => 'bottom',
+			'position' => 'top',
 			'scripts'  => [
 				'res/mermaid/7.0.5/mermaid.min.js'
 			],
@@ -155,7 +155,7 @@ class Mermaid {
 		$GLOBALS['wgResourceModules']['ext.mermaid.api'] = [
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'Mermaid',
-			'position' => 'bottom',
+			'position' => 'top',
 			'scripts'  => [
 				'res/mermaid/7.0.5/mermaidAPI.min.js'
 			],

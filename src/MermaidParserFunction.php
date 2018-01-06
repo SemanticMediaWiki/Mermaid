@@ -87,16 +87,17 @@ class MermaidParserFunction {
 
 		$content = isset( $params[0] ) ? $params[0] : '';
 
-		// Sanitize user input
-		$content = json_decode( json_encode( $content ) );
-
 		return Html::rawElement(
 			'div',
 			[
 				'id' => $id,
 				'class' => $class,
-				'data-diagram' => $content,
-				'data-config' => json_encode( $config ),
+				'data-mermaid' => json_encode(
+					[
+						'content' => $content,
+						'config'  => $config
+					]
+				)
 			],
 			Html::rawElement(
 				'div',
