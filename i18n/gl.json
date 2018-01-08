@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Elisardojm"
+		]
+	},
+	"mermaid-desc": "Proporciona unha función do analizador sintáctico para axudar a xerar diagramas e organigramas mediante a linguaxe de comandos [https://mermaidjs.github.io/ mermaid]"
+}

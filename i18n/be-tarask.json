@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Red Winged Duck"
+		]
+	},
+	"mermaid-desc": "Забясьпечвае функцыю парсэру для дапамогі ў стварэньні дыяграмаў і блёк-схемаў з выкарыстаньнем скрыптавай мовы [https://mermaidjs.github.io/ mermaid]"
+}

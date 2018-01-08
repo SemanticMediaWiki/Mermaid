@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"mermaid-desc": "提供解析器函数以帮助生成使用[https://mermaidjs.github.io/ mermaid] 脚本语言的图表和流程图"
+}

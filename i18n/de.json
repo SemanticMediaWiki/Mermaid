@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kghbln"
+		]
+	},
+	"mermaid-desc": "Stellt eine Parserfunktion zur Erstellung von (Fluss-)Diagrammen mithilfe der Skriptsprache „[https://mermaidjs.github.io/ mermaid]“ bereit"
+}

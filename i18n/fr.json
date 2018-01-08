@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wladek92"
+		]
+	},
+	"mermaid-desc": "Fournit une fonction d'analyse pour aider à la génération des diagrammes et des organigrammes en utilisant le langage de script [https://mermaidjs.github.io/ mermaid]"
+}

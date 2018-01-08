@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido"
+		]
+	},
+	"mermaid-desc": "Proporciona una función del analizador sintáctico para ayudar a generar diagramas y organigramas mediante el lenguaje de programación [https://mermaidjs.github.io/ mermaid]"
+}
