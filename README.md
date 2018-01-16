@@ -1,8 +1,6 @@
 # Mermaid
 
 [![Build Status](https://secure.travis-ci.org/SemanticMediaWiki/Mermaid.svg?branch=master)](http://travis-ci.org/SemanticMediaWiki/Mermaid)
-[![Code Coverage](https://scrutinizer-ci.com/g/SemanticMediaWiki/Mermaid/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/SemanticMediaWiki/Mermaid/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SemanticMediaWiki/Mermaid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SemanticMediaWiki/Mermaid/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/mermaid/version.png)](https://packagist.org/packages/mediawiki/mermaid)
 [![Packagist download count](https://poser.pugx.org/mediawiki/mermaid/d/total.png)](https://packagist.org/packages/mediawiki/mermaid)
 
@@ -20,7 +18,7 @@ This extension provides the `#mermaid` parser function to support the generation
 ## Installation
 
 The recommended way to install Mermaid is by using [Composer][composer] with
-an entry in MediaWiki's `composer.json` or `composer.local.json`.
+an entry in MediaWiki's "composer.json" file or preferably "composer.local.json" file.
 
 ```json
 {
@@ -31,7 +29,7 @@ an entry in MediaWiki's `composer.json` or `composer.local.json`.
 ```
 1. From your MediaWiki installation directory, execute
    `composer require mediawiki/mermaid:~1.0`
-2. Add `wfLoadExtension( 'Mermaid' );` to the `LocalSettings.php`
+2. Add `wfLoadExtension( 'Mermaid' );` to the "LocalSettings.php" file
 3. Navigate to _Special:Version_ on your wiki and verify that the package
    have been successfully installed.
 
