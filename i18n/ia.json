@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"mermaid-desc": "Forni un function analysator pro adjutar a generar diagrammas e fluxogrammas usante le linguage de script [https://mermaidjs.github.io/ mermaid]"
+}
