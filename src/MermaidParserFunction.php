@@ -53,7 +53,7 @@ class MermaidParserFunction {
 		$class = 'ext-mermaid';
 
 		// #12 Improve entropy by adding a random number
-		$id = uniqid( 'ext-mermaid-' . random_int( 1, 10000 ) );
+		$id = uniqid( 'ext-mermaid-' . rand( 1, 10000 ) );
 
 
 		if( isset( $params[0] ) && $params[0] instanceof \Parser ) {
