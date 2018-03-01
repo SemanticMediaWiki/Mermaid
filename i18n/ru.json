@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Staspotanin2"
+			"Staspotanin2",
+			"Kaganer"
 		]
 	},
-	"mermaid-desc": "Предоставляет функции парсера, для помощи в генерации диаграмм и блок-схем, с использованием [https://mermaidjs.github.io/ mermaid] скриптового языка"
+	"mermaid-desc": "Предоставляет функции парсера, для помощи в генерации диаграмм и блок-схем, с использованием скриптового языка [https://mermaidjs.github.io/ mermaid]"
 }
