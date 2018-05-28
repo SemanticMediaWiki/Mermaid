@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jay94ks"
+		]
+	},
+	"mermaid-desc": "[https://mermaidjs.github.io/mermaid] 스크립트 언어를 사용하여 다이어그램 및 흐름도를 생성하기 위해 사용할 구문 분석기 함수를 제공하세요."
+}
