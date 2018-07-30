@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"mermaid-desc": "Gir en parserfunksjon for å generere diagrammer og flytkart med skriptspråket [https://mermaidjs.github.io/ mermaid]"
+}
