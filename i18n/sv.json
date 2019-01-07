@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Psl85"
+		]
+	},
+	"mermaid-desc": "Begär en parserfunksjon för att generera diagram och flödekort med skriptspråket [https://mermaidjs.github.io/ mermaid]"
+}
