@@ -72,12 +72,13 @@ class HookRegistry {
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
 		 */
 		$this->handlers['ParserFirstCallInit'] = function ( &$parser ) {
+			$defaultTheme = $GLOBALS['mermaidgDefaultTheme'];
 
-			$parserFunctionFactory = new ParserFunctionFactory();
-
-			list( $name, $definition, $flag ) = $parserFunctionFactory->newMermaidParserFunctionDefinition();
-
-			$parser->setFunctionHook( $name, $definition, $flag );
+			$parser->setFunctionHook(
+				'mermaid',
+				MermaidParserFunction::newCallback( $defaultTheme ),
+				0
+			);
 
 			return true;
 		};

@@ -27,7 +27,36 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testParse() {
+	public function testInitCallback() {
+
+		$callback = MermaidParserFunction::newCallback( 'foo' );
+
+		$this->assertInstanceOf(
+			'\Closure',
+			$callback
+		);
+
+		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parser = $this->getMockBuilder( '\Parser' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parser->expects( $this->any() )
+			->method( 'getOutput' )
+			->will( $this->returnValue( $parserOutput ) );
+
+		$this->assertNotEmpty(
+			call_user_func_array( $callback, [ $parser ] )
+		);
+	}
+
+	/**
+	 * @dataProvider textProvider
+	 */
+	public function testParse( $text, $expected ) {
 
 		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
 			->disableOriginalConstructor()
@@ -52,9 +81,29 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertContains(
-			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram...&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>',
-			$instance->parse( [ 'sequenceDiagram...', 'theme=foo' ] )
+			$expected,
+			$instance->parse( $text )
 		);
+	}
+
+	public function textProvider() {
+
+		yield [
+			[ 'sequenceDiagram...', 'config.theme=foo' ],
+			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram...&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'
+		];
+
+		// [ ... ]
+		yield [
+			[ 'sequenceDiagram id1["This is the (text) in the box"]', 'config.theme=foo' ],
+			'data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram id1[\&quot;This is the (text) in the box\&quot;]'
+		];
+
+		// |
+		yield [
+			[ 'A[Hard edge] -->|Link text| B(Round edge)' ],
+			'data-mermaid="{&quot;content&quot;:&quot;A[Hard edge] --&gt;|Link text| B(Round edge)&quot;'
+		];
 	}
 
 }
