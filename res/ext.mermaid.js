@@ -23,7 +23,7 @@
 
 			var that = $( this );
 
-			var id = that.attr( 'id' ) + '-diagram';
+			var id = 'ext-mermaid-' + ( new Date().getTime() );
 			var data = that.data( 'mermaid' );
 
 			that.find( '.mermaid-dots' ).hide();

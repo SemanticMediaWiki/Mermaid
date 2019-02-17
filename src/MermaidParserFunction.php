@@ -24,6 +24,28 @@ class MermaidParserFunction {
 	private $defaultTheme = '';
 
 	/**
+	 * @since 1.1
+	 *
+	 * @param string $defaultTheme
+	 *
+	 * @return callable
+	 */
+	public static function newCallback( $defaultTheme ) {
+
+		return function( $parser ) use ( $defaultTheme ) {
+			$mermaidParserFunction = new self(
+				$parser
+			);
+
+			$mermaidParserFunction->setDefaultTheme(
+				$defaultTheme
+			);
+
+			return $mermaidParserFunction->parse( func_get_args() );
+		};
+	}
+
+	/**
 	 * @since  1.0
 	 *
 	 * @return Parser $parser
@@ -51,26 +73,23 @@ class MermaidParserFunction {
 	public function parse( array $params ) {
 
 		$class = 'ext-mermaid';
-
-		// #12 Improve entropy by adding a random number
-		$id = uniqid( 'ext-mermaid-' . rand( 1, 10000 ) );
-
+		$parserOutput = $this->parser->getOutput();
 
 		if( isset( $params[0] ) && $params[0] instanceof \Parser ) {
 			array_shift( $params );
 		}
 
 		// Signal the OutputPageParserOutput hook
-		$this->parser->getOutput()->setExtensionData(
+		$parserOutput->setExtensionData(
 			'ext-mermaid',
 			true
 		);
 
-		$this->parser->getOutput()->addModuleStyles(
+		$parserOutput->addModuleStyles(
 			'ext.mermaid.styles'
 		);
 
-		$this->parser->getOutput()->addModules(
+		$parserOutput->addModules(
 			'ext.mermaid'
 		);
 
@@ -78,22 +97,28 @@ class MermaidParserFunction {
 			'theme' => $this->defaultTheme
 		];
 
-		foreach ( $params as $param ) {
+		foreach ( $params as $key => $param ) {
+
 			if ( strpos( $param, '=' ) !== false ) {
 				list( $k, $v ) = explode( '=', $param, 2 );
 
-				if ( $k === 'theme' ) {
+				if ( $k === 'config.theme' ) {
 					$config['theme'] = $v;
+					unset( $params[$key] );
+				}
+
+				if ( $k === 'config.flowchart.curve' ) {
+					$config['flowchart'] = [ 'curve' => $v ];
+					unset( $params[$key] );
 				}
 			}
 		}
 
-		$content = isset( $params[0] ) ? $params[0] : '';
+		$content = implode( "|", $params );
 
 		return Html::rawElement(
 			'div',
 			[
-				'id' => $id,
 				'class' => $class,
 				'data-mermaid' => json_encode(
 					[

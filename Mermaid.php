@@ -69,7 +69,7 @@ class Mermaid {
 			'remoteExtPath' => 'Mermaid',
 			'position' => 'top',
 			'styles'   => [
-				'res/mermaid/7.0.5/mermaid.min.css'
+				'res/mermaid/8.0.0/mermaid.min.css'
 			],
 			'messages' => [],
 			'targets' => [
@@ -83,7 +83,7 @@ class Mermaid {
 			'remoteExtPath' => 'Mermaid',
 			'position' => 'top',
 			'styles'   => [
-				'res/mermaid/7.0.5/mermaid.forest.min.css'
+				'res/mermaid/8.0.0/mermaid.forest.min.css'
 			],
 			'messages' => [],
 			'targets' => [
@@ -97,7 +97,7 @@ class Mermaid {
 			'remoteExtPath' => 'Mermaid',
 			'position' => 'top',
 			'styles'   => [
-				'res/mermaid/7.0.5/mermaid.dark.min.css'
+				'res/mermaid/8.0.0/mermaid.dark.min.css'
 			],
 			'messages' => [],
 			'targets' => [
@@ -111,7 +111,7 @@ class Mermaid {
 			'remoteExtPath' => 'Mermaid',
 			'position' => 'top',
 			'styles'   => [
-				'res/mermaid/7.0.5/mermaid.neutral.min.css'
+				'res/mermaid/8.0.0/mermaid.neutral.min.css'
 			],
 			'messages' => [],
 			'targets' => [
@@ -140,7 +140,7 @@ class Mermaid {
 			'remoteExtPath' => 'Mermaid',
 			'position' => 'top',
 			'scripts'  => [
-				'res/mermaid/7.0.5/mermaid.min.js'
+				'res/mermaid/8.0.0/mermaid.min.js'
 			],
 			'dependencies'  => [
 				'ext.mermaid.d3'
@@ -157,7 +157,7 @@ class Mermaid {
 			'remoteExtPath' => 'Mermaid',
 			'position' => 'top',
 			'scripts'  => [
-				'res/mermaid/7.0.5/mermaidAPI.min.js'
+				'res/mermaid/8.0.0/mermaidAPI.min.js'
 			],
 			'dependencies'  => [
 				'ext.mermaid.d3'
