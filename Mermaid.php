@@ -53,6 +53,7 @@ class Mermaid {
 			],
 			'dependencies'  => [
 				'mediawiki.api',
+				'mediawiki.api.parse',
 				'ext.mermaid.styles',
 				'ext.mermaid.theme.default',
 				'ext.mermaid.core'
