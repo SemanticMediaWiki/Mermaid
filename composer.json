@@ -11,7 +11,7 @@
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "mwjames",
+			"name": "James Hong Kong",
 			"role": "Developer"
 		}
 	],
@@ -21,7 +21,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "1.x-dev"
+			"dev-master": "2.x-dev"
 		}
 	},
 	"autoload": {
