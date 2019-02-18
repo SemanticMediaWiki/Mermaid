@@ -17,21 +17,55 @@ This extension provides the `#mermaid` parser function to support the generation
 
 ## Installation
 
-The recommended way to install Mermaid is by using [Composer][composer] with
-an entry in MediaWiki's "composer.json" file or preferably "composer.local.json" file.
+The recommended way to install this extension is using [Composer](http://getcomposer.org) with
+[MediaWiki's built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
-```json
+### Step 1
+
+Change to the base directory of your MediaWiki installation. This is where the "LocalSettings.php"
+file is located. If you have not yet installed Composer do it now by running the following command
+in your shell:
+
+    wget https://getcomposer.org/composer.phar
+
+### Step 2
+    
+If you do not have a "composer.local.json" file yet, create one and add the following content to it:
+
+```
 {
 	"require": {
-		"mediawiki/mermaid": "~1.0"
+		"mediawiki/mermaid": "~2.0"
 	}
 }
 ```
-1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/mermaid:~1.0`
-2. Add `wfLoadExtension( 'Mermaid' );` to the "LocalSettings.php" file
-3. Navigate to _Special:Version_ on your wiki and verify that the package
-   have been successfully installed.
+
+If you already have a "composer.local.json" file add the following line to the end of the "require"
+section in your file:
+
+    "mediawiki/mermaid": "~2.0"
+
+Remember to add a comma to the end of the preceding line in this section.
+
+### Step 3
+
+Run the following command in your shell:
+
+    php composer.phar update --no-dev
+
+Note if you have Git installed on your system add the `--prefer-source` flag to the above command. Also
+note that it may be necessary to run this command twice. If unsure do it twice right away.
+
+### Step 4
+
+Add the following line to the end of your "LocalSettings.php" file:
+
+    wfLoadExtension( 'Mermaid' );
+
+### Verify installation success
+
+As final step, you can verify Mermaid got installed by looking at the "Special:Version" page on your wiki and
+check that it is listed.
 
 ## Usage
 

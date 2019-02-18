@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the Mermaid extension.
 
+### 2.0.0
+
+Released on February 18, 2019
+
+* Updates to using version 8.0.0 of the mermaid script language.
+* Translation updates from https://translatewiki.net
+
 ### 1.0.1
 
 Released on February 13, 2018.
@@ -11,6 +18,6 @@ Released on February 13, 2018.
 
 Released on January 16, 2018.
 
-* Initial release
+* Initial release using version 7.0.5 of the mermaid script language.
 * Added an `MERMAID` parser to easily generate diagrams and flowcharts with the help of the mermaid script language 
 * Localizations from https://translatewiki.net
