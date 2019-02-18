@@ -17,7 +17,7 @@ This extension provides the `#mermaid` parser function to support the generation
 
 ## Installation
 
-The recommended way to install Semantic Compound Queries is using [Composer](http://getcomposer.org) with
+The recommended way to install this extension is using [Composer](http://getcomposer.org) with
 [MediaWiki's built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
 ### Step 1
