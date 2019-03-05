@@ -1,8 +1,15 @@
 This file contains the RELEASE-NOTES of the Mermaid extension.
 
+### 2.1.0
+
+Released on March 5, 2019.
+
+* Drops support for MediaWiki 1.30 and earlier
+* Removes deprecated `mediawiki.api.parse` alias
+
 ### 2.0.0
 
-Released on February 18, 2019
+Released on February 18, 2019.
 
 * Updates to using version 8.0.0 of the mermaid script language.
 * Translation updates from https://translatewiki.net
