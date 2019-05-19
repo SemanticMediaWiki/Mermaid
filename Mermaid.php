@@ -21,8 +21,13 @@ class Mermaid {
 	 */
 	public static function initExtension( $credits = [] ) {
 
-		// Load DefaultSettings
-		require_once __DIR__ . '/DefaultSettings.php';
+		// If the function is called more than once then this will fail on
+		// purpose
+		foreach ( include __DIR__ . '/DefaultSettings.php' as $key => $value ) {
+			if ( !isset( $GLOBALS[$key] ) ) {
+				$GLOBALS[$key] = $value;
+			}
+		}
 
 		define( 'MERMAID_VERSION', $credits['version'] );
 
