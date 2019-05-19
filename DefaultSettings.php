@@ -15,4 +15,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 /**
  * Default theme
  */
-$GLOBALS['mermaidgDefaultTheme'] = 'forest';
+return [
+	'mermaidgDefaultTheme' => 'forest'
+];
