@@ -21,7 +21,7 @@ participant Bob
 
 Further [examples][examplesmw] have been created on wiki.
 
-[readme]: ../../README.md
+[readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
 [mermaid]: https://github.com/knsv/mermaid
 [examplemjs]: https://mermaidjs.github.io/
 [examplesmw]: https://sandbox.semantic-mediawiki.org/wiki/Mermaid
