@@ -1,4 +1,4 @@
-This file contains the RELEASE-NOTES of the Mermaid extension.
+This file contains the release notes of the **Mermaid** extension.
 
 ### 2.1.0
 
