@@ -1,5 +1,4 @@
-This file contains basic *usage information* for the **Mermaid** extension. See also the
-[readme].
+This file contains basic *usage information* for the **Mermaid** extension. See also the [readme].
 
 The `#mermaid` parser function allows to add [mermaid][mermaid] typed content to a wiki article. Copying,
 [example syntax][examplemjs] is as easy as:
@@ -22,7 +21,7 @@ participant Bob
 
 Further [examples][examplesmw] have been created on wiki.
 
-[readme]: /../../README.md
+[readme]: ../../README.md
 [mermaid]: https://github.com/knsv/mermaid
 [examplemjs]: https://mermaidjs.github.io/
 [examplesmw]: https://sandbox.semantic-mediawiki.org/wiki/Mermaid

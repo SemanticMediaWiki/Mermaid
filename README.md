@@ -17,7 +17,7 @@ This extension provides the `#mermaid` parser function to support the generation
 
 ## Installation and configuration
 
-See the information on [intalling and configuring] this extension.
+See the information on [installing and configuring] this extension.
 
 ## Usage
 
