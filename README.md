@@ -47,6 +47,6 @@ but can also be executed using `composer phpunit` from the extension base direct
 [smw]: https://github.com/SemanticMediaWiki/SemanticMediaWiki
 [composer]: https://getcomposer.org/
 [mermaid]: https://github.com/knsv/mermaid
-[intalling and configuring]: docs/INSTALL.md
-[using]: docs/USAGE.md
+[installing and configuring]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/INSTALL.md
+[using]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/USAGE.md
 
