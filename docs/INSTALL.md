@@ -1,5 +1,5 @@
 This file contains the *installation and configuration instructions* for the **Mermaid** extension. See also the
-[release notes] and [usage examples].
+[readme], the [release notes] and [usage examples].
 
 ## Installation
 
@@ -66,5 +66,6 @@ parameter can be set to it after invoking the extension, e.g.:
     wfLoadExtension( 'Mermaid' );  
     $mermaidgDefaultTheme = 'neutral';
 
-[release notes]: RELEASE-NOTES.md
-[usage examples]: USAGE.md
+[readme]: /../../README.md
+[release notes]: /RELEASE-NOTES.md
+[usage examples]: /USAGE.md
