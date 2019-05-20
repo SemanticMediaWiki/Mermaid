@@ -1,4 +1,12 @@
-This file contains the release notes of the **Mermaid** extension.
+This file contains the *release notes* of the **Mermaid** extension. See also the
+[readme], the [installation and configuration information] and [usage examples].
+
+
+### 2.1.1
+
+Released on May 20, 2019.
+
+* Fixes loading of configuration settings
 
 ### 2.1.0
 
@@ -28,3 +36,7 @@ Released on January 16, 2018.
 * Initial release using version 7.0.5 of the mermaid script language.
 * Added an `MERMAID` parser to easily generate diagrams and flowcharts with the help of the mermaid script language 
 * Localizations from https://translatewiki.net
+
+[readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
+[installation and configuration information]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/INSTALL.md
+[usage examples]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/USAGE.md
