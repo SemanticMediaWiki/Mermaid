@@ -66,6 +66,6 @@ parameter can be set to it after invoking the extension, e.g.:
     wfLoadExtension( 'Mermaid' );  
     $mermaidgDefaultTheme = 'neutral';
 
-[readme]: ../../README.md
-[release notes]: docs/RELEASE-NOTES.md
-[usage examples]: docs/USAGE.md
+[readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
+[release notes]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/RELEASE-NOTES.md
+[usage examples]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/USAGE.md
