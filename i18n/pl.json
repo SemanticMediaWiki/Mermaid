@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Railfail536"
+			"Railfail536",
+			"Rail"
 		]
 	},
 	"mermaid-desc": "Dostarcza funkcję parsera pomagającą w generowaniu diagramów i schematów blokowych przy wykorzystaniu języka skryptowego [https://mermaidjs.github.io/ mermaid]"
