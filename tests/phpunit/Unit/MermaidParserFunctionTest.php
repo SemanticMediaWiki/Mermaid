@@ -104,6 +104,17 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
 			[ 'A[Hard edge] -->|Link text| B(Round edge)' ],
 			'data-mermaid="{&quot;content&quot;:&quot;A[Hard edge] --&gt;|Link text| B(Round edge)&quot;'
 		];
+
+		yield [
+			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.curve=basis' ],
+			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;curve&quot;:&quot;basis&quot;}}}"><div class="mermaid-dots"></div></div>'
+		];
+
+		yield [
+			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.useMaxWidth=false' ],
+			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;useMaxWidth&quot;:false}}}"><div class="mermaid-dots"></div></div>'
+		];
+
 	}
 
 }
