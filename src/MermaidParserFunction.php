@@ -108,7 +108,19 @@ class MermaidParserFunction {
 				}
 
 				if ( $k === 'config.flowchart.curve' ) {
-					$config['flowchart'] = [ 'curve' => $v ];
+					if ( !isset( $config['flowchart'] ) ) {
+						$config['flowchart'] = [];
+					}
+					$config['flowchart']['curve'] = $v;
+					unset( $params[$key] );
+				}
+
+				if ( $k === 'config.flowchart.useMaxWidth' ) {
+					if ( !isset( $config['flowchart'] ) ) {
+						$config['flowchart'] = [];
+					}
+					$config['flowchart']['useMaxWidth'] =
+						filter_var($v, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 					unset( $params[$key] );
 				}
 			}
