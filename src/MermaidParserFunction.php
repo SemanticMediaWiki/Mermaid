@@ -100,15 +100,26 @@ class MermaidParserFunction {
 		foreach ( $params as $key => $param ) {
 
 			if ( strpos( $param, '=' ) !== false ) {
-				list( $k, $v ) = explode( '=', $param, 2 );
+				list( $k, $value ) = array_map( 'trim', explode( '=', $param, 2 ) );
 
-				if ( $k === 'config.theme' ) {
-					$config['theme'] = $v;
+				$keys = explode( '.', $k );
+				if ( count( $keys ) == 1 || $keys[0] !== 'config' ) {
+					continue;
+				}
+				array_shift( $keys );
+
+				if ( $this->parseParam( $keys, [ 'theme' ], $value, $config ) ) {
 					unset( $params[$key] );
 				}
 
-				if ( $k === 'config.flowchart.curve' ) {
-					$config['flowchart'] = [ 'curve' => $v ];
+				elseif ( $this->parseParam( $keys, [ 'flowchart' , 'curve' ], $value,
+					$config ) ) {
+					unset( $params[$key] );
+				}
+
+				elseif ( $this->parseParam( $keys, [ 'flowchart', 'useMaxWidth' ],
+						filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
+ 						$config ) ) {
 					unset( $params[$key] );
 				}
 			}
@@ -136,4 +147,21 @@ class MermaidParserFunction {
 		);
 	}
 
+	private function parseParam( $paramKeys, $configKeys, $value, &$config ) {
+
+		if ( $paramKeys !== $configKeys ) {
+			return false;
+		}
+
+		$a = &$config;
+		foreach ( $configKeys as $key ) {
+			if ( !isset( $a[$key] ) ) {
+				$a[$key] = [];
+			}	
+			$a = &$a[$key];
+		}
+		$a = $value;
+
+		return true;
+	}
 }
