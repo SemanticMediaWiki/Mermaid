@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mainframe98"
+		]
+	},
+	"mermaid-desc": "Voegt een parserfunctie toe die helpt bij het genereren van (stroom)diagrammen die gebruik maken van de [https://mermaidjs.github.io/ mermaid] scripttaal"
+}
