@@ -19,7 +19,28 @@ participant Bob
 ```
 ![image](https://user-images.githubusercontent.com/1245473/34535703-14a32100-f106-11e7-9201-ea90a6286c58.png)
 
+
+Version 2.2.0 of this extension brought support for the flowchart useMaxWidth configuration parameter. It prevents
+the respective chart from being resized to fit the size of the screen.
+
+It is passed to the parser function like shown:
+```
+{{#mermaid:graph LR;
+ ...
+ |
+ config.flowchart.useMaxWidth = false
+}}
+```
+Note that is is also possible to further adapt the graph using CSS, e.g. to add a scrollbar:
+
+```
+.ext-mermaid > div {
+	overflow: scroll;
+}
+```
+
 Further [examples][examplesmw] have been created on wiki.
+
 
 [readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
 [mermaid]: https://github.com/knsv/mermaid
