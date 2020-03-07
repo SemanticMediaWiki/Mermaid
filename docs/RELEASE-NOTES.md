@@ -1,6 +1,12 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 2.2.0
+
+Released on March 7, 2020.
+
+* Introcudes the flowchart useMaxWidth configuration parameter
+* Translation updates from https://translatewiki.net
 
 ### 2.1.1
 
@@ -12,7 +18,7 @@ Released on May 20, 2019.
 
 Released on March 5, 2019.
 
-* Drops support for MediaWiki 1.30 and earlier
+* Drops support for MediaWiki 1.32 and earlier
 * Removes deprecated `mediawiki.api.parse` alias
 
 ### 2.0.0
