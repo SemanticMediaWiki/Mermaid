@@ -13,7 +13,7 @@ This extension provides the `#mermaid` parser function to support the generation
 ## Requirements
 
 - PHP 5.6 or later
-- MediaWiki 1.31 or later
+- MediaWiki 1.33 or later
 
 ## Installation and configuration
 
