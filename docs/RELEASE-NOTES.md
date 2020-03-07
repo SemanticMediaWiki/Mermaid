@@ -5,7 +5,7 @@ This file contains the *release notes* of the **Mermaid** extension. See also th
 
 Released on March 7, 2020.
 
-* Introcudes the flowchart useMaxWidth configuration parameter
+* Introcudes the flowchart `useMaxWidth` configuration parameter
 * Translation updates from https://translatewiki.net
 
 ### 2.1.1
