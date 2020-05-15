@@ -13,19 +13,15 @@
     "git graph"
   ],
   "scripts": {
-    "postinstall": "copy-files-from-to && node inject-nomin.js"
+    "postinstall": "copy-files-from-to && node resources/utility/inject-nomin.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/SemanticMediaWiki/Mermaid"
   },
-  "author": "Knut Sveidqvist",
-  "license": "MIT",
+  "author": "Tyler Gibson",
+  "license": "GPL-2.0-or-later",
   "standard": {
-    "ignore": [
-      "modules/*.js",
-      "lib/*.js"
-    ],
     "globals": [
       "page"
     ]
@@ -39,11 +35,11 @@
   "copyFiles": [
     {
       "from": "node_modules/mermaid/dist/mermaid.min.js",
-      "to": "lib/mermaid.min.js"
+      "to": "resources/mermaid.min.js"
     },
     {
       "from": "node_modules/mermaid/dist/mermaid.min.js.map",
-      "to": "lib/mermaid.min.js.map"
+      "to": "resources/mermaid.min.js.map"
     }
   ],
   "copyFilesSettings": {

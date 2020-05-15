@@ -21,20 +21,20 @@
 		]
 	},
 	"AutoloadClasses": {
-		"Mermaid\\Hooks":"includes/Hooks.php",
-		"Mermaid\\MermaidParserFunction": "includes/MermaidParserFunction.php"
+		"Mermaid\\Hooks":"src/Hooks.php",
+		"Mermaid\\MermaidParserFunction": "src/MermaidParserFunction.php"
 	},
 	"ResourceModules": {
 		"ext.mermaid": {
 			"scripts": [
-				"modules/ext.mermaid.js",
-				"lib/mermaid.min.js"
+				"resources/ext.mermaid.js",
+				"resources/mermaid.min.js"
 			],
 			"dependencies": [
 				"mediawiki.api"
 			],
 			"styles": [
-				"styles/ext.mermaid.css"
+				"resources/styles/ext.mermaid.css"
 			],
 			"messages": [
 				"mermaid-desc"
