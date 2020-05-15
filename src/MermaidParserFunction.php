@@ -58,9 +58,9 @@ class MermaidParserFunction {
 		$parserOutput->setExtensionData( 'ext-mermaid' , true );
 		$parserOutput->addModules( 'ext.mermaid' );
 
-		if ( $globalConfig->has("MermaidDefaultTheme") ) {
+		if ( $globalConfig->has("mermaidgDefaultTheme") ) {
 			$graphConfig = [
-				'theme' => $globalConfig->get("MermaidDefaultTheme")
+				'theme' => $globalConfig->get("mermaidgDefaultTheme")
 			];
 		} else {
 			$graphConfig = [

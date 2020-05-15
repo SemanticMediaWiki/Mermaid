@@ -6,7 +6,7 @@
 			"Tyler Gibson"
 	],
 	"url": "https://github.com/SemanticMediaWiki/Mermaid/",
-	"descriptionmsg": "Mediawiki Extension enabling Mermaid.js diagrams at runtime",
+	"descriptionmsg": "mermaid-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
@@ -57,7 +57,8 @@
 		"OutputPageParserOutput" : "Mermaid\\Hooks::onOutputPageParserOutput"
 	},
 	"config": {
-		"Theme": "forest"
+		"DefaultTheme": "forest"
 	},
+	"config_prefix": "mermaidg",
 	"manifest_version": 2
 }

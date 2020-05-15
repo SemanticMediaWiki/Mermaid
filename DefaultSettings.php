@@ -4,5 +4,5 @@
  * Default theme
  */
 return [
-	'MermaidDefaultTheme' => 'forest'
+	'mermaidgDefaultTheme' => 'forest'
 ];

@@ -46,13 +46,13 @@ Add the following line to the end of your "LocalSettings.php" file:
 One configuration parameter is provided allowing to choose the basic theme for rendereing the graphs, diagrams
 and charts. By default the rendering is set to use the `forest` theme:
 
-    $wgMermaidDefaultTheme = 'forest';
+    $mermaidgDefaultTheme = 'forest';
 
 If one would like to use one of the other themes provided (`default`, `neutral` or `dark`) the configuration
 parameter can be set to it after invoking the extension, e.g.:
 
     wfLoadExtension( 'Mermaid' );  
-    $wgMermaidDefaultTheme = 'neutral';
+    $mermaidgDefaultTheme = 'neutral';
 
 ## Future Updates from MermaidJS
 
