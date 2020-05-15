@@ -26,12 +26,12 @@
 	},
 	"ResourceModules": {
 		"ext.mermaid": {
-			"packageFiles": [
-				"lib/mermaid.js",
+			"scripts": [
 				"modules/ext.mermaid.js"
 			],
 			"dependencies": [
-				"mediawiki.api"
+				"mediawiki.api",
+				"mermaid"
 			],
 			"styles": [
 				"styles/ext.mermaid.css"
@@ -43,7 +43,20 @@
 				"desktop",
 				"mobile"
 			]
-		}	
+		},
+		"mermaid": {
+			"scripts": [
+				"lib/mermaid.min.js"
+			],
+			"dependencies": [
+				"mermaid.vendor"
+			]
+		},
+		"mermaid.vendor": {
+			"scripts": [
+				"lib/vendors-mermaid.min.js"
+			]
+		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
