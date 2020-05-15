@@ -27,11 +27,11 @@
 	"ResourceModules": {
 		"ext.mermaid": {
 			"scripts": [
-				"modules/ext.mermaid.js"
+				"modules/ext.mermaid.js",
+				"lib/mermaid.min.js"
 			],
 			"dependencies": [
-				"mediawiki.api",
-				"mermaid"
+				"mediawiki.api"
 			],
 			"styles": [
 				"styles/ext.mermaid.css"
@@ -42,19 +42,6 @@
 			"targets": [
 				"desktop",
 				"mobile"
-			]
-		},
-		"mermaid": {
-			"scripts": [
-				"lib/mermaid.min.js"
-			],
-			"dependencies": [
-				"mermaid.vendor"
-			]
-		},
-		"mermaid.vendor": {
-			"scripts": [
-				"lib/vendors-mermaid.min.js"
 			]
 		}
 	},

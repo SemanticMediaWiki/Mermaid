@@ -1,0 +1,56 @@
+{
+  "name": "mediawiki-mermaid",
+  "version": "8.5.0",
+  "description": "Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams, gantt charts and git graphs.",
+  "main": "lib/mermaid.core.js",
+  "keywords": [
+    "diagram",
+    "markdown",
+    "flowchart",
+    "sequence diagram",
+    "gantt",
+    "class diagram",
+    "git graph"
+  ],
+  "scripts": {
+    "postinstall": "copy-files-from-to && node inject-nomin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SemanticMediaWiki/Mermaid"
+  },
+  "author": "Knut Sveidqvist",
+  "license": "MIT",
+  "standard": {
+    "ignore": [
+      "modules/*.js",
+      "lib/*.js"
+    ],
+    "globals": [
+      "page"
+    ]
+  },
+  "dependencies": {
+    "mermaid": "8.5.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "copyFiles": [
+    {
+      "from": "node_modules/mermaid/dist/mermaid.min.js",
+      "to": "lib/mermaid.min.js"
+    },
+    {
+      "from": "node_modules/mermaid/dist/mermaid.min.js.map",
+      "to": "lib/mermaid.min.js.map"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "overwrite"
+  },
+  "devDependencies": {
+    "copy-files-from-to": "^2.3.0",
+    "insert-line": "^1.1.0"
+  }
+}
