@@ -19,16 +19,18 @@ participant Bob
 ```
 ![image](https://user-images.githubusercontent.com/1245473/34535703-14a32100-f106-11e7-9201-ea90a6286c58.png)
 
+This extension now supports all configuration options of MermaidJS
 
-Version 2.2.0 of this extension brought support for the flowchart useMaxWidth configuration parameter. It prevents
-the respective chart from being resized to fit the size of the screen.
+* Reference - https://mermaid-js.github.io/mermaid/#/mermaidAPI
 
 It is passed to the parser function like shown:
 ```
 {{#mermaid:graph LR;
  ...
  |
+ config.theme = default
  config.flowchart.useMaxWidth = false
+ config.flowchart.curve = basis
 }}
 ```
 Note that is is also possible to further adapt the graph using CSS, e.g. to add a scrollbar:

@@ -7,8 +7,14 @@
 This extension provides the `#mermaid` parser function to support the generation of diagrams and flowcharts with the help of the [mermaid][mermaid] script language. Supported diagram forms include:
 
 - Flowchart
-- Sequence diagram
-- Gantt diagram
+- Sequence Diagram
+- Class Diagram
+- State Diagram
+- Gantt Chart
+- Pie Chart
+- Entity Relationship Diagram
+- Git Flow Chart
+- User Journey Chart
 
 ## Requirements
 
