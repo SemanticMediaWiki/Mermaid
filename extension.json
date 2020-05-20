@@ -11,6 +11,9 @@
 	"requires": {
 		"MediaWiki": ">= 1.33"
 	},
+	"ExtensionMessagesFiles": {
+		"MermaidMagic": "i18n/Mermaid.i18n.magic.php"
+	},
 	"MessagesDirs": {
 		"Mermaid": [
 			"i18n"
