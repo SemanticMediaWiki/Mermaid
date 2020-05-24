@@ -12,7 +12,7 @@
 		"MediaWiki": ">= 1.33"
 	},
 	"ExtensionMessagesFiles": {
-		"MermaidMagic": "Mermaid.i18n.magic.php"
+		"MermaidMagic": "Mermaid.magic.php"
 	},
 	"MessagesDirs": {
 		"Mermaid": [
