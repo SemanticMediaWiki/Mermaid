@@ -28,11 +28,15 @@ class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function i18nFileProvider() {
+        $extensionRoot = __DIR__ . '/../../..';
+	    $extensionJsonPath = $extensionRoot . '/extension.json';
 
+        $configContent = file_get_contents($extensionJsonPath);
+        $config = json_decode($configContent);
 		$provider = array();
 
 		$files = $this->findFilesForExtension(
-			$GLOBALS['wgMessagesDirs']['Mermaid'],
+			$config->MessagesDirs->Mermaid[0],
 			'json'
 		);
 
