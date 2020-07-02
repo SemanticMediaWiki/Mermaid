@@ -2,6 +2,7 @@
 
 namespace Mermaid;
 
+use Config;
 use Parser;
 use Html;
 use MediaWiki\MediaWikiServices;
@@ -19,6 +20,16 @@ class MermaidParserFunction {
 	 */
 	private $parser;
 
+    /**
+     * @var Config
+     */
+    private $globalConfig;
+
+    /**
+     * @var MermaidConfigExtractor
+     */
+    private $paramExtractor;
+
 	/**
 	 * @since  1.0
 	 *
@@ -26,6 +37,8 @@ class MermaidParserFunction {
 	 */
 	public function __construct( Parser $parser ) {
 		$this->parser = $parser;
+		$this->globalConfig = MediaWikiServices::getInstance()->getMainConfig();
+		$this->paramExtractor = new MermaidConfigExtractor();
 	}
 
 	/**
@@ -48,8 +61,6 @@ class MermaidParserFunction {
 	public function parse( array $params ) {
 		$class = 'ext-mermaid';
 		$parserOutput = $this->parser->getOutput();
-		$globalConfig = MediaWikiServices::getInstance()->getMainConfig();
-
 		if( isset( $params[0] ) && $params[0] instanceof \Parser ) {
 			array_shift( $params );
 		}
@@ -58,211 +69,20 @@ class MermaidParserFunction {
 		$parserOutput->setExtensionData( 'ext-mermaid' , true );
 		$parserOutput->addModules( 'ext.mermaid' );
 
-		if ( $globalConfig->has("mermaidgDefaultTheme") ) {
+		if ( $this->globalConfig->has("mermaidgDefaultTheme") ) {
 			$graphConfig = [
-				'theme' => $globalConfig->get("mermaidgDefaultTheme")
+				'theme' => $this->globalConfig->get("mermaidgDefaultTheme")
 			];
 		} else {
 			$graphConfig = [
 				'theme' => 'forest'
 			];
-		} 		
-		if( isset( $params ) ) {
-			foreach ( $params as $key => $param ) {
-
-				if ( strpos( $param, '=' ) !== false ) {
-					list( $k, $value ) = array_map( 'trim', explode( '=', $param, 2 ) );
-
-					$keys = explode( '.', $k );
-					if ( count( $keys ) == 1 || $keys[0] !== 'config' ) {
-						continue;
-					}
-					array_shift( $keys );
-
-					if ( $this->parseParam( $keys, [ 'theme' ], $value, $graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'fontFamily' ], $value, $graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'logLevel' ], $value, $graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'securityLevel' ], $value, $graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'startOnLoad' ],
-							filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
-							$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'arrowMarkerAbsolute' ],
-							filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
-							$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'flowchart' , 'curve' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'flowchart', 'useMaxWidth' ],
-							filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
-							$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'flowchart', 'htmlLabels' ],
-							filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
-							$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'flowchart' , 'rankSpacing' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'flowchart' , 'nodeSpacing' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'diagramMarginX' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'diagramMarginY' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'actorMargin' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'width' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'height' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'boxMargin' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'boxTestMargin' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'noteMargin' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'messageMargin' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'messageAlign' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence', 'mirrorActors' ],
-							filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
-							$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'bottomMarginAdj' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'useMaxWidth' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'rightAngles' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'sequence' , 'showSequenceNumbers' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'titleTopMargin' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'barHeight' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'barGap' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'topPadding' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'leftPadding' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'gridLineStartPadding' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'fontSize' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'fontFamily' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'numberSectionStyles' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-
-					elseif ( $this->parseParam( $keys, [ 'gantt' , 'axisFormat' ], $value,
-						$graphConfig ) ) {
-						unset( $params[$key] );
-					}
-				}
-			}
 		}
-		$content = implode( "|", $params );
+
+		list($mermaidConfig, $mwParams) = $this->paramExtractor->extract($params);
+
+		$content = implode( "|", $mwParams );
+        $graphConfig = array_merge($graphConfig, $mermaidConfig);
 
 		return Html::rawElement(
 			'div',
@@ -282,23 +102,5 @@ class MermaidParserFunction {
 				]
 			)
 		);
-	}
-
-	private function parseParam( $paramKeys, $graphConfigKeys, $value, &$graphConfig ) {
-
-		if ( $paramKeys !== $graphConfigKeys ) {
-			return false;
-		}
-
-		$a = &$graphConfig;
-		foreach ( $graphConfigKeys as $key ) {
-			if ( !isset( $a[$key] ) ) {
-				$a[$key] = [];
-			}	
-			$a = &$a[$key];
-		}
-		$a = $value;
-
-		return true;
 	}
 }

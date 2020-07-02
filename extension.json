@@ -57,7 +57,9 @@
 		"OutputPageParserOutput" : "Mermaid\\Hooks::onOutputPageParserOutput"
 	},
 	"config": {
-		"DefaultTheme": "forest"
+		"DefaultTheme": {
+			"value": "forest"
+		}
 	},
 	"config_prefix": "mermaidg",
 	"manifest_version": 2
