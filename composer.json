@@ -28,6 +28,11 @@
 			"dev-master": "2.x-dev"
 		}
 	},
+	"autoload": {
+		"psr-4": {
+			"Mermaid\\": "src/"
+		}
+	},
 	"scripts":{
 		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist",
 		"phpdbg": "phpdbg -qrr ../../tests/phpunit/phpunit.php -c phpunit.xml.dist",
