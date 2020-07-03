@@ -13,21 +13,23 @@ use Mermaid\MermaidParserFunction;
  *
  * @author mwjames
  */
-class MermaidParserFunctionTest extends \MediaWikiTestCase {
-
-    public function setup() {
-        parent::setup();
-    }
-
+class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
 	public function testCanConstruct() {
 
 		$parser = $this->getMockBuilder( '\Parser' )
 			->disableOriginalConstructor()
 			->getMock();
 
+		$config = $this->getMockConfig([]);
+
+		$mermaidConfig = $this->getMockBuilder( '\Mermaid\MermaidConfigExtractor' )
+			->disableOriginalConstructor()
+			->getMock();
+
+
 		$this->assertInstanceOf(
 			MermaidParserFunction::class,
-			new MermaidParserFunction( $parser )
+			new MermaidParserFunction( $parser, $config, $mermaidConfig )
 		);
 	}
 
@@ -54,8 +56,13 @@ class MermaidParserFunctionTest extends \MediaWikiTestCase {
 			->method( 'getOutput' )
 			->will( $this->returnValue( $parserOutput ) );
 
+		$mockConfig = $this->getMockConfig(["mermaidgDefaultTheme" => "forest"]);
+        $mockExtractor = $this->getMockConfigExtractor();
+
 		$instance = new MermaidParserFunction(
-			$parser
+			$parser,
+            $mockConfig,
+            $mockExtractor
 		);
 
 		$this->assertContains(
@@ -95,4 +102,29 @@ class MermaidParserFunctionTest extends \MediaWikiTestCase {
 
 	}
 
+	protected function getMockConfig(array $data) {
+	    $configMock = $parser = $this->getMockBuilder( '\Config' )
+			->disableOriginalConstructor()
+			->getMock();
+	    $configMock->method('has')->will($this->returnCallback(function ($arg) use ($data) {
+	        return in_array($arg, array_keys($data));
+        }));
+	    $configMock->method('get')->will($this->returnCallback(function ($arg) use ($data) {
+	        return $data[$arg];
+        }));
+
+	    return $configMock;
+    }
+
+    protected function getMockConfigExtractor() {
+	    $valueMap = TestingConsts::EXTRACTOR_VALUE_MAP;
+
+	    $extractorMock = $parser = $this->getMockBuilder( '\Mermaid\MermaidConfigExtractor' )
+			->disableOriginalConstructor()
+			->getMock();
+
+	    $extractorMock->method('extract')->will($this->returnValueMap($valueMap));
+
+	    return $extractorMock;
+    }
 }

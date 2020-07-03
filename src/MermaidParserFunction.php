@@ -30,34 +30,39 @@ class MermaidParserFunction {
      */
     private $paramExtractor;
 
-	/**
-	 * @since  1.0
-	 *
-	 * @return Parser $parser
-	 */
-	public function __construct( Parser $parser ) {
+    /**
+     * @param Parser $parser
+     * @param Config $globalConfig
+     * @param MermaidConfigExtractor $mermaidConfigExtractor
+     * @since  1.0
+     *
+     */
+	public function __construct( Parser $parser, Config $globalConfig, MermaidConfigExtractor $mermaidConfigExtractor ) {
 		$this->parser = $parser;
-		$this->globalConfig = MediaWikiServices::getInstance()->getMainConfig();
-		$this->paramExtractor = MediaWikiServices::getInstance()->getService('Mermaid.MermaidConfigExtractor');
+		$this->globalConfig = $globalConfig;
+		$this->paramExtractor = $mermaidConfigExtractor;
 	}
 
-	/**
-	 * @since 1.1
-	 *
-	 * @return callable
-	 */
+    /**
+     * @param Parser $parser
+     * @return callable
+     * @since 1.1
+     *
+     */
 	public static function onParserFunction( Parser $parser ) {
-		$function = new self( $parser );
+	    $globalConfig = MediaWikiServices::getInstance()->getMainConfig();
+	    $paramExtractor = MediaWikiServices::getInstance()->getService('Mermaid.MermaidConfigExtractor');
+
+		$function = new self( $parser, $globalConfig, $paramExtractor );
 		return $function->parse( func_get_args() );
 	}
 
-	/**
-	 * @since  1.0
-	 *
-	 * @param Parser &$parser
-	 *
-	 * @return string
-	 */
+    /**
+     * @param array $params
+     * @return string
+     * @since  1.0
+     *
+     */
 	public function parse( array $params ) {
 		$class = 'ext-mermaid';
 		$parserOutput = $this->parser->getOutput();
