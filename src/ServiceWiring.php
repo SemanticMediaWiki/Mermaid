@@ -14,11 +14,19 @@ use Mermaid\MermaidConfigExtractor;
 
 return [
 	/**
-	 * MermaidConfigExtractor
+	 * Mermaid.MermaidConfigExtractor
 	 *
 	 * @return callable
 	 */
 	'Mermaid.MermaidConfigExtractor' => function (MediaWikiServices $services) {
 		return new MermaidConfigExtractor();
+	},
+
+	/**
+	 * Mermaid.Config
+	 */
+	'Mermaid.Config' => function (MediaWikiServices $services) {
+		$globalConfig = $services->getMainConfig();
+		return new \Mermaid\Config($globalConfig);
 	}
 ];

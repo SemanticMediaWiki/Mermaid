@@ -22,7 +22,7 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
 			->disableOriginalConstructor()
 			->getMock();
 
-		$config = $this->getMockConfig([]);
+		$config = $this->getMockConfig();
 
 		$mermaidConfig = $this->getMockBuilder('\Mermaid\MermaidConfigExtractor')
 			->disableOriginalConstructor()
@@ -51,15 +51,13 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
 				$this->equalTo('ext-mermaid'),
 				$this->equalTo(true));
 
-		$parser = $this->getMockBuilder('\Parser')
-			->disableOriginalConstructor()
-			->getMock();
+		$parser = $this->createMock('\Parser');
 
 		$parser->expects($this->any())
 			->method('getOutput')
 			->will($this->returnValue($parserOutput));
 
-		$mockConfig = $this->getMockConfig(["mermaidgDefaultTheme" => "forest"]);
+		$mockConfig = $this->getMockConfig();
 		$mockExtractor = $this->getMockConfigExtractor();
 
 		$instance = new MermaidParserFunction(
@@ -106,17 +104,11 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
 
 	}
 
-	protected function getMockConfig(array $data)
+	protected function getMockConfig()
 	{
-		$configMock = $parser = $this->getMockBuilder('\Config')
-			->disableOriginalConstructor()
-			->getMock();
-		$configMock->method('has')->will($this->returnCallback(function ($arg) use ($data) {
-			return in_array($arg, array_keys($data));
-		}));
-		$configMock->method('get')->will($this->returnCallback(function ($arg) use ($data) {
-			return $data[$arg];
-		}));
+		$configMock = $parser = $this->createMock('\Mermaid\Config');
+
+		$configMock->method('getDefaultTheme')->willReturn('forest');
 
 		return $configMock;
 	}
@@ -125,9 +117,7 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
 	{
 		$valueMap = TestingConsts::EXTRACTOR_VALUE_MAP;
 
-		$extractorMock = $parser = $this->getMockBuilder('\Mermaid\MermaidConfigExtractor')
-			->disableOriginalConstructor()
-			->getMock();
+		$extractorMock = $parser = $this->createMock('\Mermaid\MermaidConfigExtractor');
 
 		$extractorMock->method('extract')->will($this->returnValueMap($valueMap));
 

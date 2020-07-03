@@ -2,7 +2,6 @@
 
 namespace Mermaid;
 
-use Config;
 use Parser;
 use Html;
 use MediaWiki\MediaWikiServices;
@@ -24,7 +23,7 @@ class MermaidParserFunction
 	/**
 	 * @var Config
 	 */
-	private $globalConfig;
+	private $config;
 
 	/**
 	 * @var MermaidConfigExtractor
@@ -33,15 +32,14 @@ class MermaidParserFunction
 
 	/**
 	 * @param Parser $parser
-	 * @param Config $globalConfig
+	 * @param Config $config
 	 * @param MermaidConfigExtractor $mermaidConfigExtractor
 	 * @since  1.0
-	 *
 	 */
-	public function __construct(Parser $parser, Config $globalConfig, MermaidConfigExtractor $mermaidConfigExtractor)
+	public function __construct(Parser $parser, Config $config, MermaidConfigExtractor $mermaidConfigExtractor)
 	{
 		$this->parser = $parser;
-		$this->globalConfig = $globalConfig;
+		$this->config = $config;
 		$this->paramExtractor = $mermaidConfigExtractor;
 	}
 
@@ -53,10 +51,10 @@ class MermaidParserFunction
 	 */
 	public static function onParserFunction(Parser $parser)
 	{
-		$globalConfig = MediaWikiServices::getInstance()->getMainConfig();
+		$config = MediaWikiServices::getInstance()->getService('Mermaid.Config');
 		$paramExtractor = MediaWikiServices::getInstance()->getService('Mermaid.MermaidConfigExtractor');
 
-		$function = new self($parser, $globalConfig, $paramExtractor);
+		$function = new self($parser, $config, $paramExtractor);
 		return $function->parse(func_get_args());
 	}
 
@@ -78,15 +76,9 @@ class MermaidParserFunction
 		$parserOutput->setExtensionData('ext-mermaid', true);
 		$parserOutput->addModules('ext.mermaid');
 
-		if ($this->globalConfig->has("mermaidgDefaultTheme")) {
-			$graphConfig = [
-				'theme' => $this->globalConfig->get("mermaidgDefaultTheme")
-			];
-		} else {
-			$graphConfig = [
-				'theme' => 'forest'
-			];
-		}
+		$graphConfig = [
+			'theme' => $this->config->getDefaultTheme()
+		];
 
 		list($mermaidConfig, $mwParams) = $this->paramExtractor->extract($params);
 
