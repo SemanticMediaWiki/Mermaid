@@ -52,6 +52,9 @@
 	"ExtensionMessagesFiles": {
 		"MermaidMagic": "i18n/Mermaid.i18n.php"
 	},
+	"ServiceWiringFiles": [
+		"src/ServiceWiring.php"
+	],
 	"Hooks" : {
 		"ParserFirstCallInit" : "Mermaid\\Hooks::onParserFirstCallInit",
 		"OutputPageParserOutput" : "Mermaid\\Hooks::onOutputPageParserOutput"

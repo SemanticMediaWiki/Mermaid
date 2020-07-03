@@ -38,7 +38,7 @@ class MermaidParserFunction {
 	public function __construct( Parser $parser ) {
 		$this->parser = $parser;
 		$this->globalConfig = MediaWikiServices::getInstance()->getMainConfig();
-		$this->paramExtractor = new MermaidConfigExtractor();
+		$this->paramExtractor = MediaWikiServices::getInstance()->getService('Mermaid.MermaidConfigExtractor');
 	}
 
 	/**
