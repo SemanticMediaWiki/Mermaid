@@ -43,12 +43,17 @@ class MermaidConfigExtractor
       'gantt.axisFormat' => null
   ];
 
+    /**
+     * Extracts the param array into a tuple of two arrays
+     * @param array $params
+     * @return array [$mermaidConfig, $mediawikiParam]
+     */
   public function extract(array $params) {
       $configMapKeys = array_keys($this->configMap);
 
       // Use reduce to split the param array into two arrays: [$mermaidConfig, $mediawikiParam]
       return array_reduce($params, function ($prev, $current) use ($configMapKeys) {
-        // Destructures the two arrays
+        // De-structures the two arrays
         list($mermaidConfig, $mwParams) = $prev;
 
         // if there is no "=", it belongs in mediawiki params
@@ -57,7 +62,9 @@ class MermaidConfigExtractor
             return [$mermaidConfig, $mwParams];
         }
 
+        // split from the first "=" into two parts, then trim both parts
         list( $key, $value ) = array_map( 'trim', explode( '=', $current, 2 ) );
+
         // test to see if the leftside of the "=" is in the configMap keys
         $normalizedKey = $this->keyNamingNormalizer($key);
         $inConfigMap = in_array($normalizedKey, $configMapKeys, true);
