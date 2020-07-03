@@ -13,7 +13,11 @@ use Mermaid\MermaidParserFunction;
  *
  * @author mwjames
  */
-class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
+class MermaidParserFunctionTest extends \MediaWikiTestCase {
+
+    public function setup() {
+        parent::setup();
+    }
 
 	public function testCanConstruct() {
 
@@ -24,32 +28,6 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
 		$this->assertInstanceOf(
 			MermaidParserFunction::class,
 			new MermaidParserFunction( $parser )
-		);
-	}
-
-	public function testInitCallback() {
-
-		$callback = MermaidParserFunction::newCallback( 'foo' );
-
-		$this->assertInstanceOf(
-			'\Closure',
-			$callback
-		);
-
-		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$parser = $this->getMockBuilder( '\Parser' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$parser->expects( $this->any() )
-			->method( 'getOutput' )
-			->will( $this->returnValue( $parserOutput ) );
-
-		$this->assertNotEmpty(
-			call_user_func_array( $callback, [ $parser ] )
 		);
 	}
 
@@ -90,29 +68,29 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
 
 		yield [
 			[ 'sequenceDiagram...', 'config.theme=foo' ],
-			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram...&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'
+			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram...&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		// [ ... ]
 		yield [
 			[ 'sequenceDiagram id1["This is the (text) in the box"]', 'config.theme=foo' ],
-			'data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram id1[\&quot;This is the (text) in the box\&quot;]'
+			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram id1[&amp;quot;This is the (text) in the box&amp;quot;]&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		// |
 		yield [
 			[ 'A[Hard edge] -->|Link text| B(Round edge)' ],
-			'data-mermaid="{&quot;content&quot;:&quot;A[Hard edge] --&gt;|Link text| B(Round edge)&quot;'
+			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;A[Hard edge] --&amp;gt;|Link text| B(Round edge)&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;forest&quot;}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		yield [
 			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.curve=basis' ],
-			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;curve&quot;:&quot;basis&quot;}}}"><div class="mermaid-dots"></div></div>'
+			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;curve&quot;:&quot;basis&quot;}}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		yield [
 			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.useMaxWidth=false' ],
-			'class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;useMaxWidth&quot;:false}}}"><div class="mermaid-dots"></div></div>'
+			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;useMaxWidth&quot;:false}}}"><div class="mermaid-dots"></div></div>'
 		];
 
 	}
