@@ -13,118 +13,124 @@ use Mermaid\MermaidParserFunction;
  *
  * @author mwjames
  */
-class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase {
-	public function testCanConstruct() {
+class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
+{
+	public function testCanConstruct()
+	{
 
-		$parser = $this->getMockBuilder( '\Parser' )
+		$parser = $this->getMockBuilder('\Parser')
 			->disableOriginalConstructor()
 			->getMock();
 
 		$config = $this->getMockConfig([]);
 
-		$mermaidConfig = $this->getMockBuilder( '\Mermaid\MermaidConfigExtractor' )
+		$mermaidConfig = $this->getMockBuilder('\Mermaid\MermaidConfigExtractor')
 			->disableOriginalConstructor()
 			->getMock();
 
 
 		$this->assertInstanceOf(
 			MermaidParserFunction::class,
-			new MermaidParserFunction( $parser, $config, $mermaidConfig )
+			new MermaidParserFunction($parser, $config, $mermaidConfig)
 		);
 	}
 
 	/**
 	 * @dataProvider textProvider
 	 */
-	public function testParse( $text, $expected ) {
+	public function testParse($text, $expected)
+	{
 
-		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
+		$parserOutput = $this->getMockBuilder('\ParserOutput')
 			->disableOriginalConstructor()
 			->getMock();
 
-		$parserOutput->expects( $this->once() )
-			->method( 'setExtensionData' )
+		$parserOutput->expects($this->once())
+			->method('setExtensionData')
 			->with(
-				$this->equalTo( 'ext-mermaid' ),
-				$this->equalTo( true ) );
+				$this->equalTo('ext-mermaid'),
+				$this->equalTo(true));
 
-		$parser = $this->getMockBuilder( '\Parser' )
+		$parser = $this->getMockBuilder('\Parser')
 			->disableOriginalConstructor()
 			->getMock();
 
-		$parser->expects( $this->any() )
-			->method( 'getOutput' )
-			->will( $this->returnValue( $parserOutput ) );
+		$parser->expects($this->any())
+			->method('getOutput')
+			->will($this->returnValue($parserOutput));
 
 		$mockConfig = $this->getMockConfig(["mermaidgDefaultTheme" => "forest"]);
-        $mockExtractor = $this->getMockConfigExtractor();
+		$mockExtractor = $this->getMockConfigExtractor();
 
 		$instance = new MermaidParserFunction(
 			$parser,
-            $mockConfig,
-            $mockExtractor
+			$mockConfig,
+			$mockExtractor
 		);
 
 		$this->assertContains(
 			$expected,
-			$instance->parse( $text )
+			$instance->parse($text)
 		);
 	}
 
-	public function textProvider() {
+	public function textProvider()
+	{
 
 		yield [
-			[ 'sequenceDiagram...', 'config.theme=foo' ],
+			['sequenceDiagram...', 'config.theme=foo'],
 			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram...&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		// [ ... ]
 		yield [
-			[ 'sequenceDiagram id1["This is the (text) in the box"]', 'config.theme=foo' ],
+			['sequenceDiagram id1["This is the (text) in the box"]', 'config.theme=foo'],
 			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram id1[&amp;quot;This is the (text) in the box&amp;quot;]&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		// |
 		yield [
-			[ 'A[Hard edge] -->|Link text| B(Round edge)' ],
+			['A[Hard edge] -->|Link text| B(Round edge)'],
 			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;A[Hard edge] --&amp;gt;|Link text| B(Round edge)&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;forest&quot;}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		yield [
-			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.curve=basis' ],
+			['graph LR;', 'config.theme=foo', 'config.flowchart.curve=basis'],
 			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;curve&quot;:&quot;basis&quot;}}}"><div class="mermaid-dots"></div></div>'
 		];
 
 		yield [
-			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.useMaxWidth=false' ],
+			['graph LR;', 'config.theme=foo', 'config.flowchart.useMaxWidth=false'],
 			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;useMaxWidth&quot;:false}}}"><div class="mermaid-dots"></div></div>'
 		];
 
 	}
 
-	protected function getMockConfig(array $data) {
-	    $configMock = $parser = $this->getMockBuilder( '\Config' )
+	protected function getMockConfig(array $data)
+	{
+		$configMock = $parser = $this->getMockBuilder('\Config')
 			->disableOriginalConstructor()
 			->getMock();
-	    $configMock->method('has')->will($this->returnCallback(function ($arg) use ($data) {
-	        return in_array($arg, array_keys($data));
-        }));
-	    $configMock->method('get')->will($this->returnCallback(function ($arg) use ($data) {
-	        return $data[$arg];
-        }));
+		$configMock->method('has')->will($this->returnCallback(function ($arg) use ($data) {
+			return in_array($arg, array_keys($data));
+		}));
+		$configMock->method('get')->will($this->returnCallback(function ($arg) use ($data) {
+			return $data[$arg];
+		}));
 
-	    return $configMock;
-    }
+		return $configMock;
+	}
 
-    protected function getMockConfigExtractor() {
-	    $valueMap = TestingConsts::EXTRACTOR_VALUE_MAP;
+	protected function getMockConfigExtractor()
+	{
+		$valueMap = TestingConsts::EXTRACTOR_VALUE_MAP;
 
-	    $extractorMock = $parser = $this->getMockBuilder( '\Mermaid\MermaidConfigExtractor' )
+		$extractorMock = $parser = $this->getMockBuilder('\Mermaid\MermaidConfigExtractor')
 			->disableOriginalConstructor()
 			->getMock();
 
-	    $extractorMock->method('extract')->will($this->returnValueMap($valueMap));
+		$extractorMock->method('extract')->will($this->returnValueMap($valueMap));
 
-	    return $extractorMock;
-    }
+		return $extractorMock;
+	}
 }

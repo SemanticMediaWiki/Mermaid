@@ -13,12 +13,12 @@ use MediaWiki\MediaWikiServices;
 use Mermaid\MermaidConfigExtractor;
 
 return [
-    /**
-     * MermaidConfigExtractor
-     *
-     * @return callable
-     */
-    'Mermaid.MermaidConfigExtractor' => function ( MediaWikiServices $services ) {
-        return new MermaidConfigExtractor();
-    }
+	/**
+	 * MermaidConfigExtractor
+	 *
+	 * @return callable
+	 */
+	'Mermaid.MermaidConfigExtractor' => function (MediaWikiServices $services) {
+		return new MermaidConfigExtractor();
+	}
 ];
