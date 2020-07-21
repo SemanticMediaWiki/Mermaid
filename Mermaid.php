@@ -7,9 +7,6 @@ use Mermaid\HookRegistry;
  *
  * @defgroup mermaid Mermaid
  */
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the Mermaid extension, it is not a valid entry point.' );
-}
 
 /**
  * @codeCoverageIgnore
