@@ -33,7 +33,7 @@ class Mermaid {
 
 		// Register message files
 		$GLOBALS['wgMessagesDirs']['Mermaid'] = __DIR__ . '/i18n';
-		$GLOBALS['wgExtensionMessagesFiles']['MermaidMagic'] = __DIR__ . '/i18n/Mermaid.magic.php';
+		$GLOBALS['wgExtensionMessagesFiles']['MermaidMagic'] = __DIR__ . '/Mermaid.magic.php';
 
 		$GLOBALS['wgResourceModules']['ext.mermaid.styles'] = [
 			'localBasePath' => __DIR__ ,
