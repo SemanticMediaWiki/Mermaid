@@ -1,11 +1,12 @@
 {
 	"name": "Mermaid",
-	"version": "2.3.0-alpha",
+	"version": "2.4.0-alpha",
 	"author": [
-        	"James Hong Kong"
+			"James Hong Kong",
+			"Tyler Gibson"
 	],
 	"url": "https://github.com/SemanticMediaWiki/Mermaid/",
-	"descriptionmsg": "mermaid-desc",
+	"descriptionmsg": "Mediawiki Extension enabling Mermaid.js diagrams at runtime",
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
@@ -19,10 +20,44 @@
 			"i18n"
 		]
 	},
-	"callback": "Mermaid::initExtension",
-	"ExtensionFunctions": [
-		"Mermaid::onExtensionFunction"
-	],
-	"load_composer_autoloader": true,
-	"manifest_version": 1
+	"AutoloadClasses": {
+		"Mermaid\\Hooks":"includes/Hooks.php",
+		"Mermaid\\MermaidParserFunction": "includes/MermaidParserFunction.php"
+	},
+	"ResourceModules": {
+		"ext.mermaid": {
+			"packageFiles": [
+				"lib/mermaid.js",
+				"modules/ext.mermaid.js"
+			],
+			"dependencies": [
+				"mediawiki.api"
+			],
+			"styles": [
+				"styles/ext.mermaid.css"
+			],
+			"messages": [
+				"mermaid-desc"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		}	
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "Mermaid"
+	},
+	"ExtensionMessagesFiles": {
+		"MermaidMagic": "i18n/Mermaid.i18n.php"
+	},
+	"Hooks" : {
+		"ParserFirstCallInit" : "Mermaid\\Hooks::onParserFirstCallInit",
+		"OutputPageParserOutput" : "Mermaid\\Hooks::onOutputPageParserOutput"
+	},
+	"config": {
+		"Theme": "forest"
+	},
+	"manifest_version": 2
 }

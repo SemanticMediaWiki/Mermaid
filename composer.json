@@ -13,6 +13,10 @@
 		{
 			"name": "James Hong Kong",
 			"role": "Developer"
+		},
+		{
+			"name": "Tyler Gibson",
+			"role": "Developer"
 		}
 	],
 	"require": {
@@ -23,17 +27,6 @@
 		"branch-alias": {
 			"dev-master": "2.x-dev"
 		}
-	},
-	"autoload": {
-		"files" : [
-			"Mermaid.php"
-		],
-		"psr-4": {
-			"Mermaid\\": "src/"
-		}
-	},
-	"config": {
-		"process-timeout": 0
 	},
 	"scripts":{
 		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist",

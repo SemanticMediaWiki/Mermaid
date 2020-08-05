@@ -15,7 +15,7 @@
 
 	var config = mw.config.get( 'mermaid' );
 
-	mw.loader.using( [ 'mediawiki.api', 'ext.mermaid', 'ext.mermaid.theme.' + config.theme ] ).then( function () {
+	mw.loader.using( [ 'mediawiki.api', 'ext.mermaid' ] ).then( function () {
 
 	$( document ).ready( function() {
 
