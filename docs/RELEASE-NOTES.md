@@ -1,11 +1,20 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 2.3.0
+
+Released May 15, 2020
+
+* Updates to using 8.5.0
+* Refactors the repo to use new Extension.json schema
+* Adds support for all configuration options
+* Enables direct future upstream updates from main Mermaid repo
+
 ### 2.2.0
 
 Released on March 7, 2020.
 
-* Introcudes the flowchart `useMaxWidth` configuration parameter
+* Introduces the flowchart `useMaxWidth` configuration parameter
 * Translation updates from https://translatewiki.net
 
 ### 2.1.1

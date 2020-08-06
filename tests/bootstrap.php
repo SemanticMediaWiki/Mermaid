@@ -8,11 +8,11 @@ error_reporting( E_ALL | E_STRICT );
 date_default_timezone_set( 'UTC' );
 ini_set( 'display_errors', 1 );
 
-if ( !class_exists( 'Mermaid' ) || ( $version = Mermaid::getVersion() ) === null ) {
-	die( "\nMermaid is not available, please check your Composer or LocalSettings (wfLoadExtension).\n" );
-}
+//if ( !class_exists( 'Mermaid' ) || ( $version = Mermaid::getVersion() ) === null ) {
+//	die( "\nMermaid is not available, please check your Composer or LocalSettings (wfLoadExtension).\n" );
+//}
 
-print sprintf( "\n%-20s%s\n", "Mermaid: ", $version );
+//print sprintf( "\n%-20s%s\n", "Mermaid: ", $version );
 
 if ( is_readable( $path = __DIR__ . '/../vendor/autoload.php' ) ) {
 	print sprintf( "%-20s%s\n", "MediaWiki:", $GLOBALS['wgVersion'] . " (Extension vendor autoloader)" );

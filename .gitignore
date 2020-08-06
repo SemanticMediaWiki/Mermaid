@@ -1,3 +1,4 @@
+.DS_Store
 *~
 *.kate-swp
 
@@ -9,3 +10,14 @@ composer.lock
 
 !.*
 .idea/
+
+node_modules/
+coverage/
+
+yarn-error.log
+.npmrc
+token
+
+package-lock.json
+
+.vscode/

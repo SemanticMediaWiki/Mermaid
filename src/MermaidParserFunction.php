@@ -4,6 +4,7 @@ namespace Mermaid;
 
 use Parser;
 use Html;
+use MediaWiki\MediaWikiServices;
 
 /**
  * @license GNU GPL v2+
@@ -11,7 +12,8 @@ use Html;
  *
  * @author mwjames
  */
-class MermaidParserFunction {
+class MermaidParserFunction
+{
 
 	/**
 	 * @var Parser
@@ -19,113 +21,69 @@ class MermaidParserFunction {
 	private $parser;
 
 	/**
-	 * @var string
+	 * @var Config
 	 */
-	private $defaultTheme = '';
+	private $config;
 
 	/**
+	 * @var MermaidConfigExtractor
+	 */
+	private $paramExtractor;
+
+	/**
+	 * @param Parser $parser
+	 * @param Config $config
+	 * @param MermaidConfigExtractor $mermaidConfigExtractor
+	 * @since  1.0
+	 */
+	public function __construct(Parser $parser, Config $config, MermaidConfigExtractor $mermaidConfigExtractor)
+	{
+		$this->parser = $parser;
+		$this->config = $config;
+		$this->paramExtractor = $mermaidConfigExtractor;
+	}
+
+	/**
+	 * @param Parser $parser
+	 * @return callable
 	 * @since 1.1
 	 *
-	 * @param string $defaultTheme
-	 *
-	 * @return callable
 	 */
-	public static function newCallback( $defaultTheme ) {
+	public static function onParserFunction(Parser $parser)
+	{
+		$config = MediaWikiServices::getInstance()->getService('Mermaid.Config');
+		$paramExtractor = MediaWikiServices::getInstance()->getService('Mermaid.MermaidConfigExtractor');
 
-		return function( $parser ) use ( $defaultTheme ) {
-			$mermaidParserFunction = new self(
-				$parser
-			);
-
-			$mermaidParserFunction->setDefaultTheme(
-				$defaultTheme
-			);
-
-			return $mermaidParserFunction->parse( func_get_args() );
-		};
+		$function = new self($parser, $config, $paramExtractor);
+		return $function->parse(func_get_args());
 	}
 
 	/**
-	 * @since  1.0
-	 *
-	 * @return Parser $parser
-	 */
-	public function __construct( Parser $parser ) {
-		$this->parser = $parser;
-	}
-
-	/**
-	 * @since  1.0
-	 *
-	 * @param string $defaultTheme
-	 */
-	public function setDefaultTheme( $defaultTheme ) {
-		$this->defaultTheme = $defaultTheme;
-	}
-
-	/**
-	 * @since  1.0
-	 *
 	 * @param array $params
-	 *
 	 * @return string
+	 * @since  1.0
+	 *
 	 */
-	public function parse( array $params ) {
-
+	public function parse(array $params)
+	{
 		$class = 'ext-mermaid';
 		$parserOutput = $this->parser->getOutput();
-
-		if( isset( $params[0] ) && $params[0] instanceof \Parser ) {
-			array_shift( $params );
+		if (isset($params[0]) && $params[0] instanceof \Parser) {
+			array_shift($params);
 		}
 
 		// Signal the OutputPageParserOutput hook
-		$parserOutput->setExtensionData(
-			'ext-mermaid',
-			true
-		);
+		$parserOutput->setExtensionData('ext-mermaid', true);
+		$parserOutput->addModules('ext.mermaid');
 
-		$parserOutput->addModuleStyles(
-			'ext.mermaid.styles'
-		);
-
-		$parserOutput->addModules(
-			'ext.mermaid'
-		);
-
-		$config = [
-			'theme' => $this->defaultTheme
+		$graphConfig = [
+			'theme' => $this->config->getDefaultTheme()
 		];
 
-		foreach ( $params as $key => $param ) {
+		list($mermaidConfig, $mwParams) = $this->paramExtractor->extract($params);
 
-			if ( strpos( $param, '=' ) !== false ) {
-				list( $k, $value ) = array_map( 'trim', explode( '=', $param, 2 ) );
-
-				$keys = explode( '.', $k );
-				if ( count( $keys ) == 1 || $keys[0] !== 'config' ) {
-					continue;
-				}
-				array_shift( $keys );
-
-				if ( $this->parseParam( $keys, [ 'theme' ], $value, $config ) ) {
-					unset( $params[$key] );
-				}
-
-				elseif ( $this->parseParam( $keys, [ 'flowchart' , 'curve' ], $value,
-					$config ) ) {
-					unset( $params[$key] );
-				}
-
-				elseif ( $this->parseParam( $keys, [ 'flowchart', 'useMaxWidth' ],
-						filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE),
- 						$config ) ) {
-					unset( $params[$key] );
-				}
-			}
-		}
-
-		$content = implode( "|", $params );
+		$content = implode("|", $mwParams);
+		$graphConfig = array_merge($graphConfig, $mermaidConfig);
 
 		return Html::rawElement(
 			'div',
@@ -133,8 +91,8 @@ class MermaidParserFunction {
 				'class' => $class,
 				'data-mermaid' => json_encode(
 					[
-						'content' => $content,
-						'config'  => $config
+						'content' => htmlspecialchars($content),
+						'config' => $graphConfig
 					]
 				)
 			],
@@ -145,23 +103,5 @@ class MermaidParserFunction {
 				]
 			)
 		);
-	}
-
-	private function parseParam( $paramKeys, $configKeys, $value, &$config ) {
-
-		if ( $paramKeys !== $configKeys ) {
-			return false;
-		}
-
-		$a = &$config;
-		foreach ( $configKeys as $key ) {
-			if ( !isset( $a[$key] ) ) {
-				$a[$key] = [];
-			}	
-			$a = &$a[$key];
-		}
-		$a = $value;
-
-		return true;
 	}
 }

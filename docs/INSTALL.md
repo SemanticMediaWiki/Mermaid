@@ -13,7 +13,7 @@ If you do not have a "composer.local.json" file yet, create one and add the foll
 ```
 {
 	"require": {
-		"mediawiki/mermaid": "~2.2"
+		"mediawiki/mermaid": "~2.3"
 	}
 }
 ```
@@ -21,7 +21,7 @@ If you do not have a "composer.local.json" file yet, create one and add the foll
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/mermaid": "~2.2"
+    "mediawiki/mermaid": "~2.3"
 
 Remember to add a comma to the end of the preceding line in this section.
 
@@ -53,6 +53,15 @@ parameter can be set to it after invoking the extension, e.g.:
 
     wfLoadExtension( 'Mermaid' );  
     $mermaidgDefaultTheme = 'neutral';
+
+## Future Updates from MermaidJS
+
+In order to update this repo for future updates, clone this repo and run 
+
+    yarn install
+
+This will pull from the upstream repo and patch the dist js file to load for the mediawiki extension.
+Commit any changes and PR back to this repo to put back into the composer packages.
 
 [readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
 [release notes]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/RELEASE-NOTES.md
