@@ -3,7 +3,7 @@ This file contains the *release notes* of the **Mermaid** extension. See also th
 
 ### 2.3.0
 
-Released May 15, 2020
+Released xxx xx, 2020
 
 * Updates to using 8.5.0
 * Refactors the repo to use new Extension.json schema
