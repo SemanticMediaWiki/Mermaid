@@ -106,7 +106,7 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
 
 	protected function getMockConfig()
 	{
-		$configMock = $parser = $this->createMock('\Mermaid\Config');
+		$configMock = $this->createMock('\Mermaid\Config');
 
 		$configMock->method('getDefaultTheme')->willReturn('forest');
 
@@ -117,7 +117,7 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
 	{
 		$valueMap = TestingConsts::EXTRACTOR_VALUE_MAP;
 
-		$extractorMock = $parser = $this->createMock('\Mermaid\MermaidConfigExtractor');
+		$extractorMock = $this->createMock('\Mermaid\MermaidConfigExtractor');
 
 		$extractorMock->method('extract')->will($this->returnValueMap($valueMap));
 
