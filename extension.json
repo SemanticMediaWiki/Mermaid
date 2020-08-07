@@ -13,7 +13,7 @@
 		"MediaWiki": ">= 1.33"
 	},
 	"ExtensionMessagesFiles": {
-		"MermaidMagic": "Mermaid.magic.php"
+		"MermaidMagic": "i18n/extra/Mermaid.magic.php"
 	},
 	"MessagesDirs": {
 		"Mermaid": [
@@ -48,9 +48,6 @@
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
 		"remoteExtPath": "Mermaid"
-	},
-	"ExtensionMessagesFiles": {
-		"MermaidMagic": "i18n/Mermaid.i18n.php"
 	},
 	"ServiceWiringFiles": [
 		"src/ServiceWiring.php"
