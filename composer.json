@@ -1,7 +1,7 @@
 {
 	"name": "mediawiki/mermaid",
 	"type": "mediawiki-extension",
-	"description": "Provides a parser function to generate diagrams and flowcharts with the help of the mermaid script language",
+	"description": "Provides a parser function to generate diagrams and charts with the help of the mermaid script language",
 	"keywords": [
 		"mediawiki",
 		"mermaid",
@@ -20,12 +20,12 @@
 		}
 	],
 	"require": {
-		"php": ">=5.6.0",
+		"php": ">=7.0.0",
 		"composer/installers": "1.*,>=1.0.1"
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "2.x-dev"
+			"dev-master": "3.x-dev"
 		}
 	},
 	"autoload": {
