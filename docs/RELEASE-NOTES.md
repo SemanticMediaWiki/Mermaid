@@ -1,14 +1,16 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
-### 2.3.0
+### 3.0.0
 
-Released xxx xx, 2020
+Released xxx xx, 2020.
 
-* Updates to using 8.5.0
-* Refactors the repo to use new Extension.json schema
-* Adds support for all configuration options
-* Enables direct future upstream updates from main Mermaid repo
+* Removes compatibility for MediaWiki 1.32 and earlier
+* Removes compatibility for PHP 5.6
+* Updates to using version 8.5.0 of the mermaid script language
+* Adds support for all configuration options provided by the mermaid script language
+* Refactors the repository to use the new extension registrion mechanism ("extension.json" schema)
+* Enables direct future upstream updates from main MermaidJS code repository
 
 ### 2.2.0
 
@@ -27,7 +29,6 @@ Released on May 20, 2019.
 
 Released on March 5, 2019.
 
-* Drops support for MediaWiki 1.32 and earlier
 * Removes deprecated `mediawiki.api.parse` alias
 
 ### 2.0.0
