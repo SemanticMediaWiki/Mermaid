@@ -5,12 +5,11 @@ This file contains the *release notes* of the **Mermaid** extension. See also th
 
 Released xxx xx, 2020.
 
-* Removes compatibility for MediaWiki 1.32 and earlier
-* Removes compatibility for PHP 5.6
-* Updates to using version 8.5.0 of the mermaid script language
-* Adds support for all configuration options provided by the mermaid script language
-* Refactors the repository to use the new extension registrion mechanism ("extension.json" schema)
-* Enables direct future upstream updates from main MermaidJS code repository
+* Changed minimum MediaWiki version to 1.33
+* Changed minimum PHP version from 5.6 to 7.0
+* Mermaid now needs to be enabled with `wfLoadExtension`
+* Added support for all configuration options provided by the mermaid script language
+* Updated to version 8.5.0 of the Mermaid scripting language
 
 ### 2.2.0
 
