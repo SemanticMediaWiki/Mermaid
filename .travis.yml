@@ -15,6 +15,8 @@ matrix:
       php: 7.2
     - env: DB=mysql; MW=REL1_34; PHPUNIT=6.5.*
       php: 7.3
+    - env: DB=mysql; MW=master; PHPUNIT=7.5.*
+      php: 7.3
   allow_failures:
     # "Hooks::clear was deprecated in MediaWiki 1.35" Error. Should be resolved once PR #47 is merged.
     - env: DB=mysql; MW=master; PHPUNIT=7.5.*
