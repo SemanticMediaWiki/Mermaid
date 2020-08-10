@@ -3,7 +3,7 @@ This file contains the *release notes* of the **Mermaid** extension. See also th
 
 ### 3.0.0
 
-Released xxx xx, 2020.
+Released August 10, 2020.
 
 * Changed minimum MediaWiki version to 1.33
 * Changed minimum PHP version from 5.6 to 7.0
