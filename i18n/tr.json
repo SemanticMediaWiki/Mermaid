@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"MuratTheTurkish"
 		]
 	},
-	"mermaid-desc": "[https://mermaidjs.github.io/ Deniz kızı] script dilini kullanarak diyagram ve akış şemaları oluşturmaya yardımcı olacak ayrıştırıcı bir işlev sağlar."
+	"mermaid-desc": "[https://mermaidjs.github.io/ Mermaid] betik dilini kullanarak diyagramlar ve akış çizelgeleri oluşturmaya yardımcı olmak için bir ayrıştırıcı işlevi sağlar"
 }
