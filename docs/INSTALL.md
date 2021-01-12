@@ -51,16 +51,6 @@ parameter can be set to it after invoking the extension, e.g.:
     wfLoadExtension( 'Mermaid' );  
     $mermaidgDefaultTheme = 'neutral';
 
-## Future Updates from MermaidJS
-
-In order to update this repo for future updates, clone this repo and run 
-
-    yarn install
-
-This will pull from the upstream repo and patch the dist js file to load for the mediawiki extension.
-Commit any changes and create a pull request back to the Mermaid extension's repo to put back into the
-composer packages.
-
 [readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
 [release notes]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/RELEASE-NOTES.md
 [usage examples]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/USAGE.md
