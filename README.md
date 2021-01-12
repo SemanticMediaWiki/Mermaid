@@ -41,7 +41,11 @@ have a look at the contribution guideline.
 * [File an issue](https://github.com/SemanticMediaWiki/Mermaid/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/Mermaid/pulls)
 * Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
-* Ask a question on the #semantic-mediawiki IRC channel on Freenode.
+
+## For developers
+
+See the documention on how to [update MermaidJS](https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/
+UPDATEMERMAID.md).
 
 ## Tests
 
