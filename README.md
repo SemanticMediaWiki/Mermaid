@@ -44,8 +44,7 @@ have a look at the contribution guideline.
 
 ## For developers
 
-See the documention on how to [update MermaidJS](https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/
-UPDATEMERMAID.md).
+See the documention on how to [update MermaidJS](https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/UPDATEMERMAID.md).
 
 ## Tests
 
