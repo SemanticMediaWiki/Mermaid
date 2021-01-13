@@ -20,9 +20,8 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"Mermaid\\Hooks":"src/Hooks.php",
-		"Mermaid\\MermaidParserFunction": "src/MermaidParserFunction.php"
+	"AutoloadNamespaces": {
+		"Mermaid\\": "src/"
 	},
 	"ResourceModules": {
 		"ext.mermaid": {
