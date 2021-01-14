@@ -1,6 +1,13 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 3.0.1
+
+Released January 14, 2021.
+
+* Fixed issue with class loading in some environments
+* Translation updates from https://translatewiki.net
+
 ### 3.0.0
 
 Released August 10, 2020.
@@ -10,6 +17,7 @@ Released August 10, 2020.
 * Mermaid now needs to be enabled with `wfLoadExtension`
 * Added support for all configuration options provided by the mermaid script language
 * Updated to version 8.5.0 of the Mermaid scripting language
+* Translation updates from https://translatewiki.net
 
 ### 2.2.0
 
