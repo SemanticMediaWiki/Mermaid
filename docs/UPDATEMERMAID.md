@@ -10,4 +10,4 @@ This will pull from the upstream repo and patch the dist js file to load for the
 Commit any changes and create a pull request back to the Mermaid extension's repo to put back into the
 composer packages.
 
-[install]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
+[install]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/INSTALL.md
