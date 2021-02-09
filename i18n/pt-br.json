@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"mermaid-desc": "Fornece uma função do analisador sintático para ajudar a gerar diagramas e fluxogramas, utilizando a linguagem de comandos [https://mermaidjs.github.io/ mermaid]"
