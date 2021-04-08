@@ -4,5 +4,5 @@
 			"Kghbln"
 		]
 	},
-	"mermaid-desc": "Stellt eine Parserfunktion zur Erstellung von (Fluss-)Diagrammen mithilfe der Skriptsprache „[https://mermaidjs.github.io/ mermaid]“ bereit"
+	"mermaid-desc": "Ermöglicht das Erstellen von Grafiken und Diagrammen mithilfe der Skriptsprache [https://mermaidjs.github.io/ „mermaid“]"
 }
