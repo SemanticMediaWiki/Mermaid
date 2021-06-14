@@ -25,7 +25,7 @@ cd mw
 ## MW 1.25+ requires Psr\Logger
 if [ -f composer.json ]
 then
-  composer self-update
+  composer self-update --1  # For now, stick with v1
   composer install --prefer-source
 fi
 
