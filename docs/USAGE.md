@@ -21,7 +21,7 @@ participant Bob
 
 This extension now supports all configuration options of MermaidJS
 
-* Reference - https://mermaid-js.github.io/mermaid/#/mermaidAPI
+* Reference - https://mermaid-js.github.io/mermaid/#/Setup?id=configuration
 
 It is passed to the parser function like shown:
 ```
