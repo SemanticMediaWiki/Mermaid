@@ -1,6 +1,6 @@
 # Mermaid
-
-[![codecov](https://codecov.io/gh/SemanticMediaWiki/SemanticMermaid/branch/master/graph/badge.svg?token=77DNOQPTNF)](https://codecov.io/gh/SemanticMediaWiki/Mermaid)
+[![CI](https://github.com/SemanticMediaWiki/Mermaid/actions/workflows/main.yml/badge.svg)](https://github.com/SemanticMediaWiki/Mermaid/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/SemanticMediaWiki/Mermaid/branch/master/graph/badge.svg?token=65C6fSUmuO)](https://codecov.io/gh/SemanticMediaWiki/Mermaid)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/mermaid/version.png)](https://packagist.org/packages/mediawiki/mermaid)
 [![Packagist download count](https://poser.pugx.org/mediawiki/mermaid/d/total.png)](https://packagist.org/packages/mediawiki/mermaid)
 
