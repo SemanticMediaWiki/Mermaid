@@ -74,7 +74,7 @@ class MermaidParserFunction
 
 		// Signal the OutputPageParserOutput hook
 		$parserOutput->setExtensionData('ext-mermaid', true);
-		$parserOutput->addModules('ext.mermaid');
+		$parserOutput->addModules(['ext.mermaid']);
 
 		$graphConfig = [
 			'theme' => $this->config->getDefaultTheme()
