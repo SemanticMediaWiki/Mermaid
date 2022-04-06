@@ -1,6 +1,14 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 3.1.0
+
+Released April 6, 2022.
+
+* Updated to using version 8.14.0 of the mermaid script language.
+* Code improvements and minor issue fixes
+* Translation updates from https://translatewiki.net
+
 ### 3.0.1
 
 Released January 14, 2021.
@@ -42,7 +50,7 @@ Released on March 5, 2019.
 
 Released on February 18, 2019.
 
-* Updates to using version 8.0.0 of the mermaid script language.
+* Updated to use version 8.0.0 of the mermaid script language.
 * Translation updates from https://translatewiki.net
 
 ### 1.0.1
