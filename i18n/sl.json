@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"mermaid-desc": "Zagotavlja funkcijo razčlenjevalnika za ustvarjanje potekov in diagramov s skriptnim jezikom [https://mermaidjs.github.io/ mermaid]"
+}
