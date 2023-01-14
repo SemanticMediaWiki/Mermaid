@@ -6,33 +6,32 @@
  * @author mwjames
  */
 
-/*global jQuery, mediaWiki, smw */
+/*global jQuery, mediaWiki, mermaid */
 /*jslint white: true */
 
-( function( $, mw ) {
+(function ($, mw) {
+  "use strict";
 
-	'use strict';
+  const generateString = (length) =>
+    Array(length)
+      .fill("")
+      .map(() => Math.random().toString(36).charAt(2))
+      .join("");
 
-	var config = mw.config.get( 'mermaid' );
+  mw.loader.using(["mediawiki.api", "ext.mermaid"]).then(function () {
+    $(document).ready(function () {
+      $(".ext-mermaid").each(function () {
+        let that = $(this);
 
-	mw.loader.using( [ 'mediawiki.api', 'ext.mermaid' ] ).then( function () {
+        let id = "ext-mermaid-" + generateString(10);
+        let data = that.data("mermaid");
 
-	$( document ).ready( function() {
+        that.find(".mermaid-dots").hide();
+        that.append(`<div id="${id}">${data.content}</div>`);
 
-		$( '.ext-mermaid' ).each( function() {
-
-			var that = $( this );
-
-			var id = 'ext-mermaid-' + ( new Date().getTime() );
-			var data = that.data( 'mermaid' );
-
-			that.find( '.mermaid-dots' ).hide();
-			that.append( '<div id=' + id + '> ' + data.content + ' </div>' );
-
-			mermaid.initialize( data.config );
-			mermaid.init( undefined, $( "#" + id ) );
-		} );
-	} );
-} );
-
-}( jQuery, mediaWiki ) );
+        mermaid.initialize(data.config);
+        mermaid.init(undefined, document.getElementById(id));
+      });
+    });
+  });
+})(jQuery, mediaWiki);
