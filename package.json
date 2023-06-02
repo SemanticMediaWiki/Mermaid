@@ -1,6 +1,6 @@
 {
   "name": "mediawiki-mermaid",
-  "version": "9.3.0",
+  "version": "10.2.1",
   "description": "Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams, gantt charts and git graphs.",
   "main": "lib/mermaid.core.js",
   "keywords": [
@@ -27,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "mermaid": "9.3.0"
+    "mermaid": "10.2.1"
   },
   "files": [
     "lib"
