@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"LittlePaw365",
 			"Liuxinyu970226"
 		]
 	},
-	"mermaid-desc": "提供解析器函数以帮助生成使用[https://mermaidjs.github.io/ mermaid] 脚本语言的图表和流程图"
+	"mermaid-desc": "提供解析器函数，帮助使用[https://mermaidjs.github.io/ mermaid]脚本语言生成示意图和流程图"
 }
