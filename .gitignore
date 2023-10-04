@@ -21,3 +21,5 @@ token
 package-lock.json
 
 .vscode/
+
+.env
