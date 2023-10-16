@@ -9,7 +9,7 @@ ARG PHP_VERSION
 # get needed dependencies for this extension
 RUN sed -i s/80/8080/g /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
-RUN COMPOSER=composer.local.json composer require --no-update mediawiki/semantic-media-wiki ${SMW_VERSION}
+RUN composer-require.sh mediawiki/semantic-media-wiki ${SMW_VERSION}
 RUN composer update 
 
 
