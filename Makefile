@@ -21,7 +21,7 @@ SMW_VERSION?=4.1.2
 
 # composer
 # Enables "composer update" inside of extension
-COMPOSER?=true
+COMPOSER_EXT?=true
 
 # nodejs
 # Enables node.js related tests and "npm install"
