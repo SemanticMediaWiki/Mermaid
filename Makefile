@@ -19,6 +19,10 @@ DB_IMAGE?=""
 # extensions
 SMW_VERSION?=4.1.2
 
+# composer
+# Enables "composer update" inside of extension
+COMPOSER?=true
+
 # nodejs
 # Enables node.js related tests and "npm install"
 # NODE_JS?=true
