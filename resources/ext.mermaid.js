@@ -30,7 +30,7 @@ async function init_mermaid(){
 
     // Render graph
     mermaid.initialize(data.config);
-    const { svg } = await mermaid.render(id, data.content);
+    const { svg } = await mermaid.render(id + '-svg', data.content);
 
     // Add graph to DOM
     let graph = document.createElement('div');
