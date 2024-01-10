@@ -9,29 +9,35 @@
 /*global jQuery, mediaWiki, mermaid */
 /*jslint white: true */
 
-(function ($, mw) {
-  "use strict";
+let mermaid = require('./mermaid.min.js');
 
-  const generateString = (length) =>
-    Array(length)
-      .fill("")
-      .map(() => Math.random().toString(36).charAt(2))
-      .join("");
+const generateString = (length) =>
+Array(length)
+  .fill("")
+  .map(() => Math.random().toString(36).charAt(2))
+  .join("");
 
-  mw.loader.using(["mediawiki.api", "ext.mermaid"]).then(function () {
-    $(document).ready(function () {
-      $(".ext-mermaid").each(function () {
-        let that = $(this);
+async function init_mermaid(){
+  let items = document.querySelectorAll('.ext-mermaid');
 
-        let id = "ext-mermaid-" + generateString(10);
-        let data = that.data("mermaid");
+  await Promise.all(Array.from(items).map( async (item) => {
+    let id = "ext-mermaid-" + generateString(10);
+    let data = JSON.parse(item.dataset['mermaid']);
 
-        that.find(".mermaid-dots").hide();
-        that.append(`<div id="${id}">${data.content}</div>`);
+    // Hide animated dots!
+    let dots = item.children[0];
+    dots.style.display = "none";
 
-        mermaid.initialize(data.config);
-        mermaid.init(undefined, document.getElementById(id));
-      });
-    });
-  });
-})(jQuery, mediaWiki);
+    // Render graph
+    mermaid.initialize(data.config);
+    const { svg } = await mermaid.render(id, data.content);
+
+    // Add graph to DOM
+    let graph = document.createElement('div');
+    graph.id = id;
+    graph.innerHTML = svg;
+    item.appendChild(graph);
+   }));
+}
+// No longer need to wait for document to load or wrap in closure
+init_mermaid();

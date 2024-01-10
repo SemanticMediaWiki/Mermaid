@@ -25,7 +25,7 @@
 	},
 	"ResourceModules": {
 		"ext.mermaid": {
-			"scripts": [
+			"packageFiles": [
 				"resources/ext.mermaid.js",
 				"resources/mermaid.min.js"
 			],
