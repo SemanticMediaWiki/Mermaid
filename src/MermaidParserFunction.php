@@ -91,7 +91,7 @@ class MermaidParserFunction
 				'class' => $class,
 				'data-mermaid' => json_encode(
 					[
-						'content' => htmlspecialchars($content),
+						'content' => $content,
 						'config' => $graphConfig
 					]
 				)
