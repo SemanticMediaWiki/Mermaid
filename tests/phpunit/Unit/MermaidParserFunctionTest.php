@@ -66,7 +66,7 @@ class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
 			$mockExtractor
 		);
 
-		$this->assertStringContainsString(
+		$this->assertContains(
 			$expected,
 			$instance->parse($text)
 		);
