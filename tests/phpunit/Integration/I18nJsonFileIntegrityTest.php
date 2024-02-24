@@ -20,7 +20,7 @@ class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
 
 		$contents = file_get_contents( $file );
 
-		$this->assertIsObject(
+		$this->assertIsArray(
 			'array',
 			json_decode( $contents, true ),
 			'Failed with ' . $this->getDescriptiveJsonError( json_last_error() ) . ' in ' . $file
