@@ -27,10 +27,9 @@ It is passed to the parser function like shown:
 ```
 {{#mermaid:graph LR;
  ...
- |
- config.theme = default
- config.flowchart.useMaxWidth = false
- config.flowchart.curve = basis
+ |config.theme = default
+ |config.flowchart.useMaxWidth = false
+ |config.flowchart.curve = basis
 }}
 ```
 Note that is is also possible to further adapt the graph using CSS, e.g. to add a scrollbar:
