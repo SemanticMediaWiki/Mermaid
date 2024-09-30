@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yukkuri Shambis"
+		]
+	},
+	"mermaid-desc": "[https://mermaidjs.github.io/ mermaid]というスクリプト言語を使用して、図表やフローチャートを生成するのに役立つパーサー関数を提供します"
+}
