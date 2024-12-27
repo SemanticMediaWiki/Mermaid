@@ -11,13 +11,13 @@ endif
 EXTENSION=Mermaid
 
 # docker images
-MW_VERSION?=1.35
-PHP_VERSION?=7.4
-DB_TYPE?=sqlite
-DB_IMAGE?=""
+MW_VERSION?=1.39
+PHP_VERSION?=8.1
+DB_TYPE?=mysql
+DB_IMAGE?="mariadb:11.2"
 
 # extensions
-SMW_VERSION?=4.1.2
+SMW_VERSION?=4.2.0
 
 # composer
 # Enables "composer update" inside of extension
