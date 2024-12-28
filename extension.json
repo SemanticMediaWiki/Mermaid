@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.33"
+		"MediaWiki": ">= 1.39"
 	},
 	"ExtensionMessagesFiles": {
 		"MermaidMagic": "i18n/extra/Mermaid.magic.php"
