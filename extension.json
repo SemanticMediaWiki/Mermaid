@@ -23,6 +23,10 @@
 	"AutoloadNamespaces": {
 		"Mermaid\\": "src/"
 	},
+	"TestAutoloadNamespaces": {
+  		"Mermaid\\Tests\\": "tests/phpunit/Unit/",
+ 		"Mermaid\\Tests\\Integration\\": "tests/phpunit/Integration/"
+  	},
 	"ResourceModules": {
 		"ext.mermaid": {
 			"scripts": [
