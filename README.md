@@ -18,7 +18,7 @@ This extension provides the `#mermaid` parser function to support the generation
 
 ## Requirements
 
-Requirements for Mermaid 3.x:
+Requirements for Mermaid 4.x:
 
 - PHP 7.4 or later
 - MediaWiki 1.39 or later
