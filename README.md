@@ -20,8 +20,8 @@ This extension provides the `#mermaid` parser function to support the generation
 
 Requirements for Mermaid 3.x:
 
-- PHP 7.0 or later
-- MediaWiki 1.33 or later
+- PHP 7.4 or later
+- MediaWiki 1.39 or later
 
 You can use an older version of Mermaid for older versions of MediaWiki and/or PHP.
 
