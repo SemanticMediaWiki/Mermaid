@@ -11,7 +11,7 @@ namespace Mermaid\Tests\Integration;
  *
  * @author mwjames
  */
-class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
+class I18nJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @dataProvider i18nFileProvider

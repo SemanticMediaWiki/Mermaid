@@ -41,7 +41,7 @@ Note that is is also possible to further adapt the graph using CSS, e.g. to add 
 }
 ```
 
-Further [examples][examplesmw] have been created on wiki.
+Further [examples][examplesmw] have been created on wiki. See also [Drawing Diagrams and Charts with Mermaid](https://www.pro.wiki/help/draw-mermaid-diagrams-charts-in-mediawiki)
 
 
 [readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md

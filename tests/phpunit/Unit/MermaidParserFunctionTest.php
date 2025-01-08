@@ -13,7 +13,7 @@ use Mermaid\MermaidParserFunction;
  *
  * @author mwjames
  */
-class MermaidParserFunctionTest extends \PHPUnit_Framework_TestCase
+class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
 {
 	public function testCanConstruct()
 	{
