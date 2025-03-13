@@ -1,6 +1,6 @@
 {
 	"name": "Mermaid",
-	"version": "3.1.1-beta",
+	"version": "4.0.0-alpha",
 	"author": [
 			"James Hong Kong",
 			"Tyler Gibson"
@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.33"
+		"MediaWiki": ">= 1.39"
 	},
 	"ExtensionMessagesFiles": {
 		"MermaidMagic": "i18n/extra/Mermaid.magic.php"
@@ -23,6 +23,10 @@
 	"AutoloadNamespaces": {
 		"Mermaid\\": "src/"
 	},
+	"TestAutoloadNamespaces": {
+  		"Mermaid\\Tests\\": "tests/phpunit/Unit/",
+ 		"Mermaid\\Tests\\Integration\\": "tests/phpunit/Integration/"
+  	},
 	"ResourceModules": {
 		"ext.mermaid": {
 			"scripts": [
