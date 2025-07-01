@@ -24,21 +24,21 @@ class Hooks {
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->setFunctionHook( 'mermaid', 'Mermaid\\MermaidParserFunction::onParserFunction' );
 		return true;
-    }
+	}
 
 	/**
 	 * onOutputPageParserOutput hook handler.
 	 *
 	 * @param OutputPage $out
-     * @param ParserOutput $parserOutput
+	 * @param ParserOutput $parserOutput
 	 * @return bool
 	 */
 	public static function onOutputPageParserOutput( OutputPage $out, ParserOutput $parserOutput ) {
-        if ( $parserOutput->getExtensionData( 'ext-mermaid' ) !== null &&
-            $parserOutput->getExtensionData( 'ext-mermaid' ) === true ) {
-            
-            $out->addModules( 'ext.mermaid' );
-        }
-        return true;
-    }
+		if ( $parserOutput->getExtensionData( 'ext-mermaid' ) !== null &&
+			$parserOutput->getExtensionData( 'ext-mermaid' ) === true ) {
+
+			$out->addModules( 'ext.mermaid' );
+		}
+		return true;
+	}
 }
