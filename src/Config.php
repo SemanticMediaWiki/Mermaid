@@ -4,8 +4,7 @@ namespace Mermaid;
 
 use \Config as MWConfig;
 
-class Config
-{
+class Config {
 	/**
 	 * @var MWConfig
 	 */

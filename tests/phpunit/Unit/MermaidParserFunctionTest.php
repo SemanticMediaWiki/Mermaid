@@ -13,8 +13,7 @@ use Mermaid\MermaidParserFunction;
  *
  * @author mwjames
  */
-class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
-{
+class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	public function testCanConstruct() {
 
 		$parser = $this->getMockBuilder( '\Parser' )

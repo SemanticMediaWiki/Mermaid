@@ -12,8 +12,7 @@ use MediaWiki\MediaWikiServices;
  *
  * @author mwjames
  */
-class MermaidParserFunction
-{
+class MermaidParserFunction {
 
 	/**
 	 * @var Parser

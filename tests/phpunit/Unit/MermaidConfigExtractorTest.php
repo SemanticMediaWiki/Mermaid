@@ -13,8 +13,7 @@ use Mermaid\MermaidConfigExtractor;
  *
  * @author howlowck
  */
-class MermaidConfigExtractorTest extends \PHPUnit\Framework\TestCase
-{
+class MermaidConfigExtractorTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @dataProvider caseProvider
 	 * @param array $input

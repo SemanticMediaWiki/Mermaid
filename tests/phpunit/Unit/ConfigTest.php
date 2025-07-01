@@ -4,8 +4,7 @@ namespace Mermaid\Tests;
 
 use Mermaid\Config;
 
-class ConfigTest extends \PHPUnit\Framework\TestCase
-{
+class ConfigTest extends \PHPUnit\Framework\TestCase {
 
 	public function testGetDefaultThemeWithNoValueInGlobal() {
 		$globalConfig = $this->getMockConfig( [] );

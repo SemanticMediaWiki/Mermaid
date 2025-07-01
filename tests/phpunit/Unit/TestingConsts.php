@@ -2,8 +2,7 @@
 
 namespace Mermaid\Tests;
 
-class TestingConsts
-{
+class TestingConsts {
 	const EXTRACTOR_VALUE_MAP = [
 		[
 			[ 'sequenceDiagram...', 'config.theme=foo' ],
