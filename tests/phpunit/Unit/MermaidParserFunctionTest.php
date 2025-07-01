@@ -15,7 +15,6 @@ use Mermaid\MermaidParserFunction;
  */
 class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	public function testCanConstruct() {
-
 		$parser = $this->getMockBuilder( '\Parser' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -36,7 +35,6 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider textProvider
 	 */
 	public function testParse( $text, $expected ) {
-
 		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -69,7 +67,6 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function textProvider() {
-
 		yield [
 			[ 'sequenceDiagram...', 'config.theme=foo' ],
 			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;sequenceDiagram...&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'

@@ -17,7 +17,6 @@ class I18nJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider i18nFileProvider
 	 */
 	public function testI18NJsonDecodeEncode( $file ) {
-
 		$contents = file_get_contents( $file );
 
 		$this->assertIsArray(
@@ -47,7 +46,6 @@ class I18nJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	private function findFilesForExtension( $path, $extension ) {
-
 		$files = array();
 
 		$directoryIterator = new \RecursiveDirectoryIterator(
@@ -64,7 +62,6 @@ class I18nJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	private function getDescriptiveJsonError( $errorCode ) {
-
 		$errorMessages = array(
 			JSON_ERROR_NONE => '',
 			JSON_ERROR_STATE_MISMATCH => 'Underflow or the modes mismatch, malformed JSON',
