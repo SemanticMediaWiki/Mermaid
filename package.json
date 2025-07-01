@@ -30,23 +30,24 @@
     "mermaid": "8.14.0"
   },
   "files": [
-    "lib"
+    "lib",
+    "resources"
   ],
   "copyFiles": [
     {
       "from": "node_modules/mermaid/dist/mermaid.min.js",
-      "to": "resources/mermaid.min.js"
+      "to": "resources/mermaid/mermaid.min.js"
     },
     {
       "from": "node_modules/mermaid/dist/mermaid.min.js.map",
-      "to": "resources/mermaid.min.js.map"
+      "to": "resources/mermaid/mermaid.min.js.map"
     }
   ],
   "copyFilesSettings": {
     "whenFileExists": "overwrite"
   },
   "devDependencies": {
-    "copy-files-from-to": "^2.3.0",
+    "copy-files-from-to": "^3.12.1",
     "insert-line": "^1.1.0"
   }
 }
