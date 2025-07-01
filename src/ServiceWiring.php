@@ -18,15 +18,15 @@ return [
 	 *
 	 * @return callable
 	 */
-	'Mermaid.MermaidConfigExtractor' => function (MediaWikiServices $services) {
+	'Mermaid.MermaidConfigExtractor' => function ( MediaWikiServices $services ) {
 		return new MermaidConfigExtractor();
 	},
 
 	/**
 	 * Mermaid.Config
 	 */
-	'Mermaid.Config' => function (MediaWikiServices $services) {
+	'Mermaid.Config' => function ( MediaWikiServices $services ) {
 		$globalConfig = $services->getMainConfig();
-		return new \Mermaid\Config($globalConfig);
+		return new \Mermaid\Config( $globalConfig );
 	}
 ];

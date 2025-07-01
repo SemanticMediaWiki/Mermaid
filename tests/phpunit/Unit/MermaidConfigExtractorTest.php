@@ -20,10 +20,10 @@ class MermaidConfigExtractorTest extends \PHPUnit\Framework\TestCase
 	 * @param array $input
 	 * @param array $expected
 	 */
-	public function testExtract(array $input, array $expected)
+	public function testExtract( array $input, array $expected )
 	{
 		$instance = new MermaidConfigExtractor();
-		$this->assertSame($expected, $instance->extract($input), 'Extractor able to extract the configs');
+		$this->assertSame( $expected, $instance->extract( $input ), 'Extractor able to extract the configs' );
 	}
 
 	public function caseProvider()

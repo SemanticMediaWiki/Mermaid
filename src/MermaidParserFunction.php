@@ -36,7 +36,7 @@ class MermaidParserFunction
 	 * @param MermaidConfigExtractor $mermaidConfigExtractor
 	 * @since  1.0
 	 */
-	public function __construct(Parser $parser, Config $config, MermaidConfigExtractor $mermaidConfigExtractor)
+	public function __construct( Parser $parser, Config $config, MermaidConfigExtractor $mermaidConfigExtractor )
 	{
 		$this->parser = $parser;
 		$this->config = $config;
@@ -49,13 +49,13 @@ class MermaidParserFunction
 	 * @since 1.1
 	 *
 	 */
-	public static function onParserFunction(Parser $parser)
+	public static function onParserFunction( Parser $parser )
 	{
-		$config = MediaWikiServices::getInstance()->getService('Mermaid.Config');
-		$paramExtractor = MediaWikiServices::getInstance()->getService('Mermaid.MermaidConfigExtractor');
+		$config = MediaWikiServices::getInstance()->getService( 'Mermaid.Config' );
+		$paramExtractor = MediaWikiServices::getInstance()->getService( 'Mermaid.MermaidConfigExtractor' );
 
-		$function = new self($parser, $config, $paramExtractor);
-		return $function->parse(func_get_args());
+		$function = new self( $parser, $config, $paramExtractor );
+		return $function->parse( func_get_args() );
 	}
 
 	/**
@@ -64,26 +64,26 @@ class MermaidParserFunction
 	 * @since  1.0
 	 *
 	 */
-	public function parse(array $params)
+	public function parse( array $params )
 	{
 		$class = 'ext-mermaid';
 		$parserOutput = $this->parser->getOutput();
-		if (isset($params[0]) && $params[0] instanceof \Parser) {
-			array_shift($params);
+		if ( isset( $params[0] ) && $params[0] instanceof \Parser ) {
+			array_shift( $params );
 		}
 
 		// Signal the OutputPageParserOutput hook
-		$parserOutput->setExtensionData('ext-mermaid', true);
-		$parserOutput->addModules(['ext.mermaid']);
+		$parserOutput->setExtensionData( 'ext-mermaid', true );
+		$parserOutput->addModules( [ 'ext.mermaid' ] );
 
 		$graphConfig = [
 			'theme' => $this->config->getDefaultTheme()
 		];
 
-		list($mermaidConfig, $mwParams) = $this->paramExtractor->extract($params);
+		list( $mermaidConfig, $mwParams ) = $this->paramExtractor->extract( $params );
 
-		$content = implode("|", $mwParams);
-		$graphConfig = array_merge($graphConfig, $mermaidConfig);
+		$content = implode( "|", $mwParams );
+		$graphConfig = array_merge( $graphConfig, $mermaidConfig );
 
 		return Html::rawElement(
 			'div',
@@ -91,7 +91,7 @@ class MermaidParserFunction
 				'class' => $class,
 				'data-mermaid' => json_encode(
 					[
-						'content' => htmlspecialchars($content),
+						'content' => htmlspecialchars( $content ),
 						'config' => $graphConfig
 					]
 				)

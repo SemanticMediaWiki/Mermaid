@@ -55,47 +55,47 @@ class MermaidConfigExtractor
 	 * @param array $params
 	 * @return array [$mermaidConfig, $mediawikiParam]
 	 */
-	public function extract(array $params)
+	public function extract( array $params )
 	{
-		$configMapKeys = array_keys($this->configMap);
+		$configMapKeys = array_keys( $this->configMap );
 
 		// Use reduce to split the param array into two arrays: [$mermaidConfig, $mediawikiParam]
-		return array_reduce($params, function ($prev, $current) use ($configMapKeys) {
+		return array_reduce( $params, function ( $prev, $current ) use ( $configMapKeys ) {
 			// De-structures the two arrays
-			list($mermaidConfig, $mwParams) = $prev;
+			list( $mermaidConfig, $mwParams ) = $prev;
 
 			// if there is no "=", it belongs in mediawiki params
-			if (strpos($current, '=') === false) {
+			if ( strpos( $current, '=' ) === false ) {
 				$mwParams[] = $current;
-				return [$mermaidConfig, $mwParams];
+				return [ $mermaidConfig, $mwParams ];
 			}
 
 			// split from the first "=" into two parts, then trim both parts
-			list($key, $value) = array_map('trim', explode('=', $current, 2));
+			list( $key, $value ) = array_map( 'trim', explode( '=', $current, 2 ) );
 
 			// test to see if the leftside of the "=" is in the configMap keys
-			$normalizedKey = $this->keyNamingNormalizer($key);
-			$inConfigMap = in_array($normalizedKey, $configMapKeys, true);
+			$normalizedKey = $this->keyNamingNormalizer( $key );
+			$inConfigMap = in_array( $normalizedKey, $configMapKeys, true );
 
 			// if not in config map, the value belongs in the mediawiki params
-			if (!$inConfigMap) {
+			if ( !$inConfigMap ) {
 				$mwParams[] = $current;
-				return [$mermaidConfig, $mwParams];
+				return [ $mermaidConfig, $mwParams ];
 			}
 
 			// config key is in the config map
 			// check to see if there is a type associated with the key
 			$normalizedValue = $value;
 			$valueType = $this->configMap[$normalizedKey];
-			if ($valueType !== null) {
+			if ( $valueType !== null ) {
 				// normalize: 'true' => true, '1' => true, etc
-				$normalizedValue = filter_var($value, $valueType, FILTER_NULL_ON_FAILURE);
+				$normalizedValue = filter_var( $value, $valueType, FILTER_NULL_ON_FAILURE );
 			}
 
 			// set the config with dot.notation
-			$this->setWithDotNotation($mermaidConfig, $normalizedKey, $normalizedValue);
-			return [$mermaidConfig, $mwParams];
-		}, [[], []]);
+			$this->setWithDotNotation( $mermaidConfig, $normalizedKey, $normalizedValue );
+			return [ $mermaidConfig, $mwParams ];
+		}, [ [], [] ] );
 	}
 
 	/**
@@ -103,12 +103,12 @@ class MermaidConfigExtractor
 	 * @param string $key
 	 * @return false|string
 	 */
-	protected function keyNamingNormalizer(string $key)
+	protected function keyNamingNormalizer( string $key )
 	{
-		if (strpos($key, 'config.') === false) {
+		if ( strpos( $key, 'config.' ) === false ) {
 			return $key;
 		}
-		return substr($key, 7);
+		return substr( $key, 7 );
 	}
 
 	// Taken from Laravel's Arr::set function
@@ -120,32 +120,32 @@ class MermaidConfigExtractor
 	 * @param $value
 	 * @return array|mixed
 	 */
-	protected function setWithDotNotation(&$array, $key, $value)
+	protected function setWithDotNotation( &$array, $key, $value )
 	{
-		if (is_null($key)) {
+		if ( is_null( $key ) ) {
 			return $array = $value;
 		}
 
-		$keys = explode('.', $key);
+		$keys = explode( '.', $key );
 
-		foreach ($keys as $i => $key) {
-			if (count($keys) === 1) {
+		foreach ( $keys as $i => $key ) {
+			if ( count( $keys ) === 1 ) {
 				break;
 			}
 
-			unset($keys[$i]);
+			unset( $keys[$i] );
 
 			// If the key doesn't exist at this depth, we will just create an empty array
 			// to hold the next value, allowing us to create the arrays to hold final
 			// values at the correct depth. Then we'll keep digging into the array.
-			if (!isset($array[$key]) || !is_array($array[$key])) {
+			if ( !isset( $array[$key] ) || !is_array( $array[$key] ) ) {
 				$array[$key] = [];
 			}
 
 			$array = &$array[$key];
 		}
 
-		$array[array_shift($keys)] = $value;
+		$array[array_shift( $keys )] = $value;
 
 		return $array;
 	}
