@@ -36,7 +36,7 @@ class Hooks {
 	public static function onOutputPageParserOutput( OutputPage $out, ParserOutput $parserOutput ) {
 		if ( $parserOutput->getExtensionData( 'ext-mermaid' ) !== null &&
 			$parserOutput->getExtensionData( 'ext-mermaid' ) === true ) {
-			
+
 			$out->addModules( 'ext.mermaid' );
 		}
 		return true;
