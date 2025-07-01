@@ -1,0 +1,37 @@
+{
+  "description": "Test Mermaid flowchart with direction TD",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Direction TD",
+      "contents": "{{#mermaid:flowchart TD\n    Start --> Stop\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid data-mermaid attribute content with TD direction",
+      "subject": "Mermaid Test/Direction TD",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;flowchart TD",
+          "Start",
+          "--&amp;gt;",
+          "Stop"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "description": "Test Mermaid node with round edges",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Round Edges Node",
+      "contents": "{{#mermaid:flowchart LR\n    id1(This is the text in the box)\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid data-mermaid attribute content for node with round edges",
+      "subject": "Mermaid Test/Round Edges Node",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;flowchart LR",
+          "id1",
+          "(This is the text in the box)"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

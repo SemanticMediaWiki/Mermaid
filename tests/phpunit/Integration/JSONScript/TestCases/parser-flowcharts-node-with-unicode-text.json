@@ -1,0 +1,36 @@
+{
+  "description": "Test Mermaid flowchart node with Unicode text",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Unicode Node",
+      "contents": "{{#mermaid:flowchart LR\n    id[\"This ❤ Unicode\"]\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid data-mermaid attribute content with Unicode text",
+      "subject": "Mermaid Test/Unicode Node",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;flowchart LR",
+          "id",
+          "This \\u2764 Unicode"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}
