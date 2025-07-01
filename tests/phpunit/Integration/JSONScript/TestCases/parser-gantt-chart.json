@@ -1,0 +1,37 @@
+{
+  "description": "Test Mermaid Gantt chart render",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Gantt",
+      "contents": "{{#mermaid:gantt\\ndateFormat  YYYY-MM-DD\\ntitle Adding GANTT diagram functionality to mermaid\\nsection A section\\nCompleted task            :done,    des1, 2014-01-06,2014-01-08\\nActive task               :active,  des2, 2014-01-09, 3d\\nFuture task               :         des3, after des2, 5d\\nFuture task2              :         des4, after des3, 5d\\nsection Critical tasks\\nCompleted task in the critical line :crit, done, 2014-01-06,24h\\nImplement parser and jison          :crit, done, after des1, 2d\\nCreate tests for parser             :crit, active, 3d\\nFuture task in critical line        :crit, 5d\\nCreate tests for renderer           :2d\\nAdd to mermaid                      :1d\\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid Gantt chart data-mermaid attribute",
+      "subject": "Mermaid Test/Gantt",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "gantt\\\\ndateFormat YYYY-MM-DD",
+          "title Adding GANTT diagram functionality to mermaid",
+          "Completed task :done, des1, 2014-01-06,2014-01-08",
+          "Add to mermaid :1d"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

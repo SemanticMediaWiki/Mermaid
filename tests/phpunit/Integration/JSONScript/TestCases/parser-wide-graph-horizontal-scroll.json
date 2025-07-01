@@ -1,0 +1,58 @@
+{
+  "description": "Test Mermaid wide graph with horizontal scroll config",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Wide Graph",
+      "contents": "{{#mermaid:graph LR;\nA[\"This is a very wide box\"]\nB[\"This is a very wide box\"]\nC[\"This is a very wide box\"]\nD[\"This is a very wide box\"]\nE[\"This is a very wide box\"]\nF[\"This is a very wide box\"]\nG[\"This is a very wide box\"]\nH[\"This is a very wide box\"]\nI[\"This is a very wide box\"]\nJ[\"This is a very wide box\"]\nA-->B\nB-->C\nC-->D\nD-->E\nE-->F\nF-->G\nG-->H\nH-->I\nI-->J\n|\nconfig.flowchart.useMaxWidth = false\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid wide graph content and config",
+      "subject": "Mermaid Test/Wide Graph",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;graph LR;",
+          "A",
+          "This is a very wide box",
+          "B",
+          "This is a very wide box",
+          "C",
+          "This is a very wide box",
+          "D",
+          "This is a very wide box",
+          "E",
+          "This is a very wide box",
+          "F",
+          "This is a very wide box",
+          "G",
+          "This is a very wide box",
+          "H",
+          "This is a very wide box",
+          "I",
+          "This is a very wide box",
+          "J",
+          "This is a very wide box",
+          "A--&amp;gt;B",
+          "B--&amp;gt;C",
+          "C--&amp;gt;D",
+          "D--&amp;gt;E",
+          "E--&amp;gt;F"  
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

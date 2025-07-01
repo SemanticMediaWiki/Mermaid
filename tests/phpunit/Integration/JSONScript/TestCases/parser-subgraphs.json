@@ -1,0 +1,47 @@
+{
+  "description": "Test Mermaid graph with subgraphs",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Subgraph Test",
+      "contents": "{{#mermaid:graph TD\n subgraph ICT Department\n A1(\"Asset(s) received\")-->A2(Count and check that all items are<br>delivered according to delivery note)\n A2-->A3(\"Add non-consumable<br>asset(s) to asset registry\")\n A3-->A4(Store or re-distribute asset)\n end\n subgraph Stores\n A2-->B1(Generate GRV)\n end\n subgraph Sub-process\n A3-->C1(Insurance process)\n end\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid data-mermaid attribute content with subgraphs",
+      "subject": "Mermaid Test/Subgraph Test",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;graph TD",
+          "subgraph ICT Department",
+          "A1",
+          "Asset(s) received",
+          "--&amp;gt;A2(Count and check that all items are&amp;lt;br&amp;gt;delivered according to delivery note)",
+          "A2--&amp;gt;A3",
+          "Add non-consumable&amp;lt;br&amp;gt;asset(s) to asset registry",
+          "A3--&amp;gt;A4",
+          "Store or re-distribute asset",
+          "end",
+          "subgraph Stores",
+          "A2--&amp;gt;B1(Generate GRV)",
+          "end",
+          "subgraph Sub-process",
+          "A3--&amp;gt;C1(Insurance process)"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

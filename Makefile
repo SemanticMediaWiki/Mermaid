@@ -16,6 +16,10 @@ PHP_VERSION?=8.1
 DB_TYPE?=mysql
 DB_IMAGE?="mariadb:11.2"
 
+# extensions
+# Enables JSONScript tests to be run
+SMW_VERSION?=5.0.2
+
 # composer
 # Enables "composer update" inside of extension
 COMPOSER_EXT?=true
