@@ -15,8 +15,7 @@ use Mermaid\MermaidParserFunction;
  */
 class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
 {
-	public function testCanConstruct()
-	{
+	public function testCanConstruct() {
 
 		$parser = $this->getMockBuilder( '\Parser' )
 			->disableOriginalConstructor()
@@ -38,8 +37,7 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
 	/**
 	 * @dataProvider textProvider
 	 */
-	public function testParse( $text, $expected )
-	{
+	public function testParse( $text, $expected ) {
 
 		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
 			->disableOriginalConstructor()
@@ -72,8 +70,7 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
 		);
 	}
 
-	public function textProvider()
-	{
+	public function textProvider() {
 
 		yield [
 			[ 'sequenceDiagram...', 'config.theme=foo' ],
@@ -104,8 +101,7 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
 
 	}
 
-	protected function getMockConfig()
-	{
+	protected function getMockConfig() {
 		$configMock = $this->createMock( '\Mermaid\Config' );
 
 		$configMock->method( 'getDefaultTheme' )->willReturn( 'forest' );
@@ -113,8 +109,7 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
 		return $configMock;
 	}
 
-	protected function getMockConfigExtractor()
-	{
+	protected function getMockConfigExtractor() {
 		$valueMap = TestingConsts::EXTRACTOR_VALUE_MAP;
 
 		$extractorMock = $this->createMock( '\Mermaid\MermaidConfigExtractor' );

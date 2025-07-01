@@ -36,8 +36,7 @@ class MermaidParserFunction
 	 * @param MermaidConfigExtractor $mermaidConfigExtractor
 	 * @since  1.0
 	 */
-	public function __construct( Parser $parser, Config $config, MermaidConfigExtractor $mermaidConfigExtractor )
-	{
+	public function __construct( Parser $parser, Config $config, MermaidConfigExtractor $mermaidConfigExtractor ) {
 		$this->parser = $parser;
 		$this->config = $config;
 		$this->paramExtractor = $mermaidConfigExtractor;
@@ -49,8 +48,7 @@ class MermaidParserFunction
 	 * @since 1.1
 	 *
 	 */
-	public static function onParserFunction( Parser $parser )
-	{
+	public static function onParserFunction( Parser $parser ) {
 		$config = MediaWikiServices::getInstance()->getService( 'Mermaid.Config' );
 		$paramExtractor = MediaWikiServices::getInstance()->getService( 'Mermaid.MermaidConfigExtractor' );
 
@@ -64,8 +62,7 @@ class MermaidParserFunction
 	 * @since  1.0
 	 *
 	 */
-	public function parse( array $params )
-	{
+	public function parse( array $params ) {
 		$class = 'ext-mermaid';
 		$parserOutput = $this->parser->getOutput();
 		if ( isset( $params[0] ) && $params[0] instanceof \Parser ) {

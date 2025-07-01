@@ -55,8 +55,7 @@ class MermaidConfigExtractor
 	 * @param array $params
 	 * @return array [$mermaidConfig, $mediawikiParam]
 	 */
-	public function extract( array $params )
-	{
+	public function extract( array $params ) {
 		$configMapKeys = array_keys( $this->configMap );
 
 		// Use reduce to split the param array into two arrays: [$mermaidConfig, $mediawikiParam]
@@ -103,8 +102,7 @@ class MermaidConfigExtractor
 	 * @param string $key
 	 * @return false|string
 	 */
-	protected function keyNamingNormalizer( string $key )
-	{
+	protected function keyNamingNormalizer( string $key ) {
 		if ( strpos( $key, 'config.' ) === false ) {
 			return $key;
 		}
@@ -120,8 +118,7 @@ class MermaidConfigExtractor
 	 * @param $value
 	 * @return array|mixed
 	 */
-	protected function setWithDotNotation( &$array, $key, $value )
-	{
+	protected function setWithDotNotation( &$array, $key, $value ) {
 		if ( is_null( $key ) ) {
 			return $array = $value;
 		}
