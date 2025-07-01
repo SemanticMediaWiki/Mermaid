@@ -27,7 +27,6 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase
 			->disableOriginalConstructor()
 			->getMock();
 
-
 		$this->assertInstanceOf(
 			MermaidParserFunction::class,
 			new MermaidParserFunction( $parser, $config, $mermaidConfig )

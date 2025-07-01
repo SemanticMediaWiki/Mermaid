@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Mermaid;
 
 use \Config as MWConfig;
