@@ -1,0 +1,42 @@
+{
+  "description": "Test Mermaid flowchart with markdown labels and multiline text",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Markdown Labels",
+      "contents": "{{#mermaid:flowchart LR\nconfig.flowchart.htmlLabels = false\nmarkdown[\"`This **is** _Markdown_`\"]\nnewLines[\"`Line1\\nLine 2\\nLine 3`\"]\nmarkdown --> newLines\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid data-mermaid attribute content with markdown and multiline labels",
+      "subject": "Mermaid Test/Markdown Labels",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;flowchart LR",
+          "config.flowchart.htmlLabels = false",
+          "markdown",
+          "`This **is** _Markdown_`",
+          "newLines",
+          "`Line1",
+          "Line 2",
+          "Line 3`",
+          "markdown --&amp;gt; newLines"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

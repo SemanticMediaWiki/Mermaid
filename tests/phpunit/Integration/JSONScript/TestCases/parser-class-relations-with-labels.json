@@ -1,0 +1,42 @@
+{
+  "description": "Test Mermaid classDiagram relationships with labels",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Class Diagram Relationships",
+      "contents": "{{#mermaid:classDiagram\nclassA --|> classB : Inheritance\nclassC --* classD : Composition\nclassE --o classF : Aggregation\nclassG --> classH : Association\nclassI -- classJ : Link(Solid)\nclassK ..> classL : Dependency\nclassM ..|> classN : Realization\nclassO .. classP : Link(Dashed)\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid classDiagram relationships with labels",
+      "subject": "Mermaid Test/Class Diagram Relationships",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;classDiagram",
+          "classA --|&amp;gt; classB : Inheritance",
+          "classC --* classD : Composition",
+          "classE --o classF : Aggregation",
+          "classG --&amp;gt; classH : Association",
+          "classI -- classJ : Link(Solid)",
+          "classK ..&amp;gt; classL : Dependency",
+          "classM ..|&amp;gt; classN : Realization",
+          "classO .. classP : Link(Dashed)"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

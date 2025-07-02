@@ -1,0 +1,39 @@
+{
+  "description": "Test Mermaid stateDiagram-v2 with <<choice>> state",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/State Choice",
+      "contents": "{{#mermaid:stateDiagram-v2\n    state if_state <<choice>>\n    [*] --> IsPositive\n    IsPositive --> if_state\n    if_state --> False: if n < 0\n    if_state --> True : if n >= 0\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Verify Mermaid <<choice>> state in stateDiagram-v2",
+      "subject": "Mermaid Test/State Choice",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;stateDiagram-v2",
+          "state if_state &amp;lt;&amp;lt;choice&amp;gt;&amp;gt;",
+          "&#91;*&#93; --&amp;gt; IsPositive",
+          "IsPositive --&amp;gt; if_state",
+          "if_state --&amp;gt; False: if n &amp;lt; 0",
+          "if_state --&amp;gt; True : if n &amp;gt;= 0"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "debug": true,
+    "is-incomplete": false
+  }
+}

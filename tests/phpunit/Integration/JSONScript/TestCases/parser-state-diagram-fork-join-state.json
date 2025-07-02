@@ -1,0 +1,43 @@
+{
+  "description": "Test Mermaid stateDiagram-v2 with <<fork>> and <<join>> states",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/State Fork Join",
+      "contents": "{{#mermaid:stateDiagram-v2\n    state fork_state <<fork>>\n    [*] --> fork_state\n    fork_state --> State2\n    fork_state --> State3\n\n    state join_state <<join>>\n    State2 --> join_state\n    State3 --> join_state\n    join_state --> State4\n    State4 --> [*]\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Verify Mermaid <<fork>> and <<join>> states in stateDiagram-v2",
+      "subject": "Mermaid Test/State Fork Join",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;stateDiagram-v2",
+          "state fork_state &amp;lt;&amp;lt;fork&amp;gt;&amp;gt;",
+          "&#91;*&#93; --&amp;gt; fork_state",
+          "fork_state --&amp;gt; State2",
+          "fork_state --&amp;gt; State3",
+          "state join_state &amp;lt;&amp;lt;join&amp;gt;&amp;gt;",
+          "State2 --&amp;gt; join_state",
+          "State3 --&amp;gt; join_state",
+          "join_state --&amp;gt; State4",
+          "State4 --&amp;gt; &#91;*&#93;"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "debug": true,
+    "is-incomplete": false
+  }
+}

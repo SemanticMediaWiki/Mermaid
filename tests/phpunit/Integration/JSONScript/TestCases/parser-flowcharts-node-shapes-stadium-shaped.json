@@ -1,0 +1,36 @@
+{
+  "description": "Test Mermaid stadium-shaped node",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Stadium Node",
+      "contents": "{{#mermaid:flowchart LR\n    id1([This is the text in the box])\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid data-mermaid attribute content for stadium-shaped node",
+      "subject": "Mermaid Test/Stadium Node",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;flowchart LR",
+          "id1",
+          "(&#91;This is the text in the box&#93;)"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

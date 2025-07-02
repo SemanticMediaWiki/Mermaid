@@ -1,0 +1,40 @@
+{
+  "description": "Test Mermaid sequence diagram with single and multi-participant notes",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Sequence Diagram Notes",
+      "contents": "{{#mermaid:sequenceDiagram\n    participant John\n    Note right of John: Text in note\n\n    participant Alice\n    participant Bob\n    Alice->John: Hello John, how are you?\n    Note over Alice,John: A typical interaction\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid sequence diagram with notes",
+      "subject": "Mermaid Test/Sequence Diagram Notes",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;sequenceDiagram",
+          "participant John",
+          "Note right of John: Text in note",
+          "participant Alice",
+          "participant Bob",
+          "Alice-&amp;gt;John: Hello John, how are you?",
+          "Note over Alice,John: A typical interaction"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

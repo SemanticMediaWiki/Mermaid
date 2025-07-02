@@ -1,0 +1,41 @@
+{
+  "description": "Test Gantt diagram with title and exclusions",
+  "requires": {
+    "Mermaid": ">=2.0."
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Gantt Title and exclusions",
+      "contents": "{{#mermaid:gantt\n    title A Gantt Diagram Excluding Fri - Sat weekends\n    dateFormat YYYY-MM-DD\n    excludes weekends\n    weekend friday\n    section Section\n        A task          :a1, 2024-01-01, 30d\n        Another task    :after a1, 20d\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid Gantt diagram with title and exclusions",
+      "subject": "Mermaid Test/Gantt Title and exclusions",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;gantt",
+          "title A Gantt Diagram Excluding Fri - Sat weekends",
+          "dateFormat YYYY-MM-DD",
+          "excludes weekends",
+          "weekend friday",
+          "section Section",
+          "A task :a1, 2024-01-01, 30d",
+          "Another task :after a1, 20d"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

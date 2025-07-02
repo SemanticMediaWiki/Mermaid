@@ -1,0 +1,38 @@
+{
+  "description": "Test Mermaid sequence diagram with participant aliases",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Sequence Aliases",
+      "contents": "{{#mermaid:sequenceDiagram\n    participant A as Alice\n    participant J as John\n    A->>J: Hello John, how are you?\n    J->>A: Great!\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Verify participants with aliases and basic message arrows",
+      "subject": "Mermaid Test/Sequence Aliases",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;sequenceDiagram",
+          "participant A as Alice",
+          "participant J as John",
+          "A-&amp;gt;&amp;gt;J: Hello John, how are you?",
+          "J-&amp;gt;&amp;gt;A: Great!"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

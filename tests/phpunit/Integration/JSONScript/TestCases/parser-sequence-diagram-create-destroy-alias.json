@@ -1,0 +1,44 @@
+{
+  "description": "Test Mermaid sequence diagram with create and destroy directives including aliases",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Sequence Create Destroy",
+      "contents": "{{#mermaid:sequenceDiagram\n    Alice->>Bob: Hello Bob, how are you ?\n    Bob->>Alice: Fine, thank you. And you?\n    create participant Carl\n    Alice->>Carl: Hi Carl!\n    create actor D as Donald\n    Carl->>D: Hi!\n    destroy Carl\n    Alice-xCarl: We are too many\n    destroy Bob\n    Bob->>Alice: I agree\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid data-mermaid attribute with create and destroy directives",
+      "subject": "Mermaid Test/Sequence Create Destroy",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;sequenceDiagram",
+          "create participant Carl",
+          "create actor D as Donald",
+          "destroy Carl",
+          "destroy Bob",
+          "Alice-&amp;gt;&amp;gt;Bob: Hello Bob, how are you ?",
+          "Bob-&amp;gt;&amp;gt;Alice: Fine, thank you. And you?",
+          "Alice-&amp;gt;&amp;gt;Carl: Hi Carl!",
+          "Carl-&amp;gt;&amp;gt;D: Hi!",
+          "Alice-xCarl: We are too many",
+          "Bob-&amp;gt;&amp;gt;Alice: I agree"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

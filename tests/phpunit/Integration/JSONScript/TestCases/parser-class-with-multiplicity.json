@@ -1,0 +1,37 @@
+{
+  "description": "Test Mermaid classDiagram with cardinality (multiplicity)",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Class Diagram Cardinality",
+      "contents": "{{#mermaid:classDiagram\n    Customer \"1\" --> \"*\" Ticket\n    Student \"1\" --> \"1..*\" Course\n    Galaxy --> \"many\" Star : Contains\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid classDiagram content with cardinality",
+      "subject": "Mermaid Test/Class Diagram Cardinality",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "quot;content&quot;:&quot;classDiagram",
+          "Customer &amp;quot;1&amp;quot; --&amp;gt; &amp;quot;*&amp;quot; Ticket",
+          "Student &amp;quot;1&amp;quot; --&amp;gt; &amp;quot;1..*&amp;quot; Course",
+          "Galaxy --&amp;gt; &amp;quot;many&amp;quot; Star : Contains"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

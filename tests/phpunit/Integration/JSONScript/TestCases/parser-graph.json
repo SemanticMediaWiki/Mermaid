@@ -1,0 +1,35 @@
+{
+  "description": "Test Mermaid Graph render",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Graph Test",
+      "contents": "{{#mermaid:graph TD\nA-->B\nB-->C\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid Graph data-mermaid attribute",
+      "subject": "Mermaid Test/Graph Test",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;graph TD",
+          "A--&amp;gt;B",
+          "B--&amp;gt;C"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "description": "Test Mermaid sequence diagram nested parallel blocks",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Sequence Diagram Nested Parallel",
+      "contents": "{{#mermaid:sequenceDiagram\n    par Alice to Bob\n        Alice->>Bob: Go help John\n    and Alice to John\n        Alice->>John: I want this done today\n        par John to Charlie\n            John->>Charlie: Can we do this today?\n        and John to Diana\n            John->>Diana: Can you help us today?\n        end\n    end\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid sequence diagram content with nested parallel blocks",
+      "subject": "Mermaid Test/Sequence Diagram Nested Parallel",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;sequenceDiagram",
+          "par Alice to Bob",
+          "Alice-&amp;gt;&amp;gt;Bob: Go help John",
+          "and Alice to John",
+          "Alice-&amp;gt;&amp;gt;John: I want this done today",
+          "par John to Charlie",
+          "John-&amp;gt;&amp;gt;Charlie: Can we do this today?",
+          "and John to Diana",
+          "John-&amp;gt;&amp;gt;Diana: Can you help us today?",
+          "end",
+          "end"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}
