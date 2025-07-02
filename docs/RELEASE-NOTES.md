@@ -1,6 +1,13 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 5.0.0
+
+Released July 2, 2025.
+
+* Updated to using version 9.4.0 of the mermaid script language.
+* Translation updates from https://translatewiki.net
+
 ### 4.0.0
 
 Released July 2, 2025.
@@ -20,7 +27,6 @@ Released July 2, 2025.
 * Improved test reliability and handling of HTML escaping and multi-line content
 * Added PHP CodeSniffer linting and fixed related code style issues
 * Updated CI badges and build scripts accordingly
-
 
 ### 3.1.0
 
