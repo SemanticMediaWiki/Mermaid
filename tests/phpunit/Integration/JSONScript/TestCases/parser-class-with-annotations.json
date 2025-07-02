@@ -1,0 +1,45 @@
+{
+  "description": "Test Mermaid classDiagram with annotations on classes",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Class Diagram Annotations",
+      "contents": "{{#mermaid:classDiagram\nclass Shape {\n    <<interface>>\n    noOfVertices\n    draw()\n}\nclass Color {\n    <<enumeration>>\n    RED\n    BLUE\n    GREEN\n    WHITE\n    BLACK\n}\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid classDiagram content with annotations (interface, enumeration)",
+      "subject": "Mermaid Test/Class Diagram Annotations",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;classDiagram",
+          "class Shape &#123;",
+          "&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;",
+          "noOfVertices",
+          "draw()",
+          "class Color &#123;",
+          "&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;",
+          "RED",
+          "BLUE",
+          "GREEN",
+          "WHITE",
+          "BLACK"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}
