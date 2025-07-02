@@ -1,18 +1,13 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
-### 5.0.1
+### 4.0.1
 
 Released July 2, 2025.
 
-* Updated ResourceLoader script path to match build output: `resources/mermaid/mermaid.min.js`.
-* Translation updates from https://translatewiki.net
-
-### 5.0.0
-
-Released July 2, 2025.
-
-* Updated to using version 9.4.0 of the mermaid script language.
+* Reverted breaking changes (incorrect file deletions, broken ResourceLoader paths)
+* Restored stable state from version 4.0.0 as the new baseline
+* Cleaned up internal ResourceLoader configuration and ensured proper mermaid.min.js resolution
 * Translation updates from https://translatewiki.net
 
 ### 4.0.0

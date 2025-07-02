@@ -1,6 +1,6 @@
 {
 	"name": "Mermaid",
-	"version": "5.0.1",
+	"version": "4.0.1",
 	"author": [
 			"James Hong Kong",
 			"Tyler Gibson"
@@ -31,7 +31,7 @@
 		"ext.mermaid": {
 			"scripts": [
 				"resources/ext.mermaid.js",
-				"resources/mermaid/mermaid.min.js"
+				"resources/mermaid.min.js"
 			],
 			"dependencies": [
 				"mediawiki.api"
