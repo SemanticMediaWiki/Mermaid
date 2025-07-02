@@ -1,0 +1,38 @@
+{
+  "description": "Test Mermaid sequence diagram with actor type and bidirectional communication",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Sequence Actors",
+      "contents": "{{#mermaid:sequenceDiagram\n    actor Alice\n    actor Bob\n    Alice->>Bob: Hi Bob\n    Bob->>Alice: Hi Alice\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Verify actor definitions and bidirectional message arrows",
+      "subject": "Mermaid Test/Sequence Actors",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;sequenceDiagram",
+          "actor Alice",
+          "actor Bob",
+          "Alice-&amp;gt;&amp;gt;Bob: Hi Bob",
+          "Bob-&amp;gt;&amp;gt;Alice: Hi Alice"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

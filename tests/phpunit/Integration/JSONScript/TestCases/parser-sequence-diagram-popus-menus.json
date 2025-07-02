@@ -1,0 +1,43 @@
+{
+  "description": "Test Mermaid sequenceDiagram with actor popup menus (links)",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Sequence Diagram Actor Links",
+      "contents": "{{#mermaid:sequenceDiagram\n    participant Alice\n    participant John\n    link Alice: Dashboard @ https://dashboard.contoso.com/alice\n    link Alice: Wiki @ https://wiki.contoso.com/alice\n    link John: Dashboard @ https://dashboard.contoso.com/john\n    link John: Wiki @ https://wiki.contoso.com/john\n    Alice->>John: Hello John, how are you?\n    John-->>Alice: Great!\n    Alice-)John: See you later!\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid sequenceDiagram with actor popup menus links",
+      "subject": "Mermaid Test/Sequence Diagram Actor Links",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;sequenceDiagram",
+          "participant Alice",
+          "participant John",
+          "link Alice: Dashboard @ https:\\/\\/dashboard.contoso.com\\/alice",
+          "link Alice: Wiki @ https:\\/\\/wiki.contoso.com\\/alice",
+          "link John: Dashboard @ https:\\/\\/dashboard.contoso.com\\/john",
+          "link John: Wiki @ https:\\/\\/wiki.contoso.com\\/john",
+          "Alice-&amp;gt;&amp;gt;John: Hello John, how are you?",
+          "John--&amp;gt;&amp;gt;Alice: Great!",
+          "Alice-)John: See you later!"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

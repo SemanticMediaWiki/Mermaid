@@ -1,0 +1,38 @@
+{
+  "description": "Test Mermaid sequence diagram with loop block",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Sequence Diagram Loop",
+      "contents": "{{#mermaid:sequenceDiagram\n    Alice->John: Hello John, how are you?\n    loop Every minute\n        John-->Alice: Great!\n    end\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid sequence diagram content with loop",
+      "subject": "Mermaid Test/Sequence Diagram Loop",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;sequenceDiagram",
+          "Alice-&amp;gt;John: Hello John, how are you?",
+          "loop Every minute",
+          "John--&amp;gt;Alice: Great!",
+          "end"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "description": "Test Mermaid sequence diagram render",
+  "description": "Test Mermaid sequence diagram: participants and basic message arrows",
   "requires": {
     "Mermaid": ">=2.0"
   },
@@ -12,7 +12,7 @@
   "tests": [
     {
       "type": "parser",
-      "about": "Check Mermaid sequenceDiagram data-mermaid attribute content",
+      "about": "Test Mermaid sequence diagram: participants and basic message arrows",
       "subject": "Mermaid Test/Sequence Diagram",
       "assert-output": {
         "to-contain": [
