@@ -1,15 +1,19 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 5.0.1
+
+Released July 2, 2025.
+
+* Updated ResourceLoader script path to match build output: `resources/mermaid/mermaid.min.js`.
+* Translation updates from https://translatewiki.net
+
 ### 5.0.0
 
 Released July 2, 2025.
 
-* Upgraded Mermaid.js to version `9.4.3`.
-* Added support for modern diagram types and improved rendering accuracy from recent Mermaid versions.
-* Updated integration logic because Mermaid builds from `9.x+` no longer expose mermaid as a global variable by default.
-* Cleanup and optimization of the `ext.mermaid.js` file and ResourceLoader configuration for improved stability and maintainability.
-* Wrapped JavaScript initialization in error handling to prevent crashes if rendering fails.
+* Updated to using version 9.4.0 of the mermaid script language.
+* Translation updates from https://translatewiki.net
 
 ### 4.0.1
 
