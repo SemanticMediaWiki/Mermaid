@@ -52,7 +52,7 @@ jobs:
             database_image: "mariadb:11.2"
             coverage: false
             experimental: false
-          - mediawiki_version: '1.43'
+          - mediawiki_version: '1.43.1'
             smw_version: '5.0.2'
             php_version: 8.2
             database_type: mysql
