@@ -1,0 +1,41 @@
+{
+  "description": "Test Mermaid stateDiagram-v2 with notes on states",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/State Diagram Notes",
+      "contents": "{{#mermaid:stateDiagram-v2\n    State1: The state with a note\n    note right of State1\n        Important information! You can write\n        notes.\n    end note\n    State1 --> State2\n    note left of State2 : This is the note to the left.\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid stateDiagram-v2 with notes",
+      "subject": "Mermaid Test/State Diagram Notes",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;stateDiagram-v2",
+          "State1: The state with a note",
+          "note right of State1",
+          "Important information! You can write",
+          "notes.",
+          "end note",
+          "State1 --&amp;gt; State2",
+          "note left of State2 : This is the note to the left."
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "debug": true,
+    "is-incomplete": false
+  }
+}

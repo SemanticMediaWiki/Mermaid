@@ -1,0 +1,68 @@
+{
+  "description": "Test Mermaid stateDiagram-v2 with composite states",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/State Diagram Composite States",
+      "contents": "{{#mermaid:stateDiagram-v2\n    [*] --> First\n    state First {\n        [*] --> second\n        second --> [*]\n    }\n\n    [*] --> NamedComposite\n    NamedComposite: Another Composite\n    state NamedComposite {\n        [*] --> namedSimple\n        namedSimple --> [*]\n        namedSimple: Another simple\n    }\n}}"
+    },
+    {
+      "page": "Mermaid Test/State Diagram Nested 3 Levels",
+      "contents": "{{#mermaid:stateDiagram-v2\n    [*] --> First\n\n    state First {\n        [*] --> Second\n\n        state Second {\n            [*] --> second\n            second --> Third\n\n            state Third {\n                [*] --> third\n                third --> [*]\n            }\n        }\n    }\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid stateDiagram-v2 with composite and named states",
+      "subject": "Mermaid Test/State Diagram Composite States",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;stateDiagram-v2",
+          "&#91;*&#93; --&amp;gt; First",
+          "state First &#123;",
+          "&#91;*&#93; --&amp;gt; second",
+          "second --&amp;gt; &#91;*&#93;",
+          "&#91;*&#93; --&amp;gt; NamedComposite",
+          "NamedComposite: Another Composite",
+          "state NamedComposite &#123;",
+          "&#91;*&#93; --&amp;gt; namedSimple",
+          "namedSimple --&amp;gt; &#91;*&#93;",
+          "namedSimple: Another simple"
+        ]
+      }
+    },
+    {
+      "type": "parser",
+      "about": "Check output of deeply nested stateDiagram-v2",
+      "subject": "Mermaid Test/State Diagram Nested 3 Levels",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;stateDiagram-v2",
+          "&#91;*&#93; --&amp;gt; First",
+          "state First &#123;",
+          "&#91;*&#93; --&amp;gt; Second",
+          "state Second &#123;",
+          "&#91;*&#93; --&amp;gt; second",
+          "second --&amp;gt; Third",
+          "state Third &#123;",
+          "&#91;*&#93; --&amp;gt; third",
+          "third --&amp;gt; &#91;*&#93;"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

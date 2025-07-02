@@ -1,0 +1,43 @@
+{
+  "description": "Test Mermaid stateDiagram with direction LR and nested states",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/State Diagram Direction LR",
+      "contents": "{{#mermaid:stateDiagram\n    direction LR\n    [*] --> A\n    A --> B\n    B --> C\n    state B {\n      direction LR\n      a --> b\n    }\n    B --> D\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid stateDiagram with direction LR and nested state direction",
+      "subject": "Mermaid Test/State Diagram Direction LR",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;stateDiagram",
+          "direction LR",
+          "&#91;*&#93; --&amp;gt; A",
+          "A --&amp;gt; B",
+          "B --&amp;gt; C",
+          "state B &#123;",
+          "direction LR",
+          "a --&amp;gt; b",
+          "&#125;",
+          "B --&amp;gt; D"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "debug": true,
+    "is-incomplete": false
+  }
+}
