@@ -31,7 +31,7 @@
 		"ext.mermaid": {
 			"scripts": [
 				"resources/ext.mermaid.js",
-				"resources/mermaid.min.js"
+				"resources/mermaid/mermaid.min.js"
 			],
 			"dependencies": [
 				"mediawiki.api"
