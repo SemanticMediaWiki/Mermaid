@@ -1,6 +1,27 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 4.0.0
+
+Released July 2, 2025.
+
+* Switched to npm for managing Mermaid dependencies and build scripts
+* Removed yarn.lock
+* Updated README and developer docs to reflect npm usage starting from this version
+* Added extensive JSONScript integration tests covering core Mermaid diagram types: 
+  - flowcharts, 
+  - sequence diagrams, 
+  - class diagrams, 
+  - state diagrams, 
+  - Gantt charts, 
+  - pie charts, 
+  - quadrant charts, 
+  - and requirement diagrams
+* Improved test reliability and handling of HTML escaping and multi-line content
+* Added PHP CodeSniffer linting and fixed related code style issues
+* Updated CI badges and build scripts accordingly
+
+
 ### 3.1.0
 
 Released April 6, 2022.
