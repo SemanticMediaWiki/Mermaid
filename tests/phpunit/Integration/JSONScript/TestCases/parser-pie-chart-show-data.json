@@ -1,0 +1,39 @@
+{
+  "description": "Test Mermaid pie chart with showData and title",
+  "requires": {
+    "Mermaid": ">=2.0"
+  },
+  "setup": [
+    {
+      "page": "Mermaid Test/Pie Chart ShowData",
+      "contents": "{{#mermaid:pie showData\n    title Key elements in Product X\n    \"Calcium\" : 42.96\n    \"Potassium\" : 50.05\n    \"Magnesium\" : 10.01\n    \"Iron\" : 5\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid pie chart content with showData and title",
+      "subject": "Mermaid Test/Pie Chart ShowData",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"",
+          "&quot;content&quot;:&quot;pie showData",
+          "title Key elements in Product X",
+          "&amp;quot;Calcium&amp;quot; : 42.96",
+          "&amp;quot;Potassium&amp;quot; : 50.05",
+          "&amp;quot;Magnesium&amp;quot; : 10.01",
+          "&amp;quot;Iron&amp;quot; : 5"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}
