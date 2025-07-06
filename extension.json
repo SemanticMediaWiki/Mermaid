@@ -1,6 +1,6 @@
 {
 	"name": "Mermaid",
-	"version": "5.0.2",
+	"version": "5.0.3",
 	"author": [
 			"James Hong Kong",
 			"Tyler Gibson"
@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.39"
+		"MediaWiki": ">= 1.40"
 	},
 	"ExtensionMessagesFiles": {
 		"MermaidMagic": "i18n/extra/Mermaid.magic.php"
