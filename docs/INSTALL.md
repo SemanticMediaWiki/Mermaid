@@ -12,8 +12,22 @@ If you do not have a "composer.local.json" file yet, create one and add the foll
 
 ```
 {
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/Octobersama/Mermaid-OTTOWiki.git"
+		},
+	],
 	"require": {
-		"mediawiki/mermaid": "~5.0.2"
+		"mediawiki/mermaid": "~5.0.3",
+	},
+	"extra": {
+		"merge-plugin": {
+			"include": [
+				"extensions/*/composer.json",
+				"skins/*/composer.json"
+			]
+		}
 	}
 }
 ```
@@ -23,13 +37,20 @@ section in your file:
 
     "mediawiki/mermaid": "~5.0.2"
 
+And add the following to the square brackets of "repositories":
+
+    {
+	    "type": "vcs",
+	    "url": "https://github.com/Octobersama/Mermaid-OTTOWiki.git"
+    }
+
 Remember to add a comma to the end of the preceding line in this section.
 
 ### Step 2
 
 Run the following command in your shell:
 
-    php composer.phar update --no-dev
+    composer update --no-dev
 
 ### Step 3
 
