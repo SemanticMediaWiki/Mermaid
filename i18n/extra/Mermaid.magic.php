@@ -3,11 +3,11 @@
 /**
  * Magic words
  */
-$magicWords = array();
+$magicWords = [];
 
 /**
  * English (English)
  */
-$magicWords['en'] = array(
-	'mermaid' => array( 0, 'mermaid' )
-);
+$magicWords['en'] = [
+	'mermaid' => [ 0, 'mermaid' ]
+];
