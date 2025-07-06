@@ -1,5 +1,5 @@
 {
-	"name": "mediawiki/mermaid",
+	"name": "mediawiki/mermaid-OTTOWiki",
 	"type": "mediawiki-extension",
 	"description": "Provides a parser function to generate diagrams and charts with the help of the mermaid script language",
 	"keywords": [
