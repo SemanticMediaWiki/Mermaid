@@ -23,6 +23,11 @@ Requirements for Mermaid 4.x:
 - PHP 7.4 or later
 - MediaWiki 1.39 or later
 
+Mermaid 5.0.3 and later requirements:
+
+- PHP 7.4 or later
+- MediaWiki 1.40 or later
+
 You can use an older version of Mermaid for older versions of MediaWiki and/or PHP.
 
 ## Installation and configuration
