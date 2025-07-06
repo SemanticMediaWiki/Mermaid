@@ -3,7 +3,7 @@
 namespace Mermaid;
 
 use Parser;
-use Html;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 
 /**
