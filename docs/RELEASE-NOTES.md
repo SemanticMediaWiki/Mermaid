@@ -1,6 +1,14 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 5.0.3
+
+Released July 6, 2025.
+
+* Use updated php array writing in magic word registration file.
+* Fixed class "Html" not found error that started in mediawiki version 1.44.0.
+* Mediawiki versions before 1.40 are no longer supported.
+
 ### 5.0.2
 
 Released July 2, 2025.
