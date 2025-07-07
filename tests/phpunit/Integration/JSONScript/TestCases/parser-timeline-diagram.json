@@ -1,0 +1,36 @@
+{
+  "description": "Test Mermaid timeline diagram",
+  "setup": [
+    {
+      "page": "Mermaid Test/Timeline Test",
+      "contents": "{{#mermaid:timeline\ntitle History of Social Media Platform\n2002 : LinkedIn\n2004 : Facebook\n     : Google\n2005 : YouTube\n2006 : Twitter\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid timeline data-mermaid attribute content",
+      "subject": "Mermaid Test/Timeline Test",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;timeline",
+          "title History of Social Media Platform",
+          "2002 : LinkedIn",
+          "2004 : Facebook",
+          " : Google",
+          "2005 : YouTube",
+          "2006 : Twitter"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "description": "Test Mermaid sankey-beta graph",
+  "setup": [
+    {
+      "page": "Mermaid Test/Sankey Beta Test",
+      "contents": "{{#mermaid:sankey-beta\nA,B,10\nA,C,5\nB,D,7\nC,D,3\nD,E,8\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid sankey-beta data-mermaid attribute content",
+      "subject": "Mermaid Test/Sankey Beta Test",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;sankey-beta",
+          "A,B,10",
+          "A,C,5",
+          "B,D,7",
+          "C,D,3",
+          "D,E,8"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}
