@@ -1,22 +1,35 @@
-## Updating `mermaid` Library
-Mermaid 4.0.0 introduced a new mechanism to update the MermaidJS library shipped with this extension. Starting from this version, the extension switched from using `yarn` to `npm` for managing and updating MermaidJS. This document explains how to perform the update using npm. It is intended for developers only. Users should simply install the extension version tagged with the desired MermaidJS release.
+# Updating `mermaid` Library
 
-### How It Works
-After running `npm install`, the following happens automatically:
+Starting from version 6.0.0, this extension uses a **Rollup-based bundling approach** to include both the `mermaid` library and extension-specific initialization code in a single bundled file (`mermaid.min.js`).
 
-1. **Copying Files**  
-    The `copy-files-from-to` tool copies the minified `mermaid` files from `node_modules` to the `resources/mermaid/` directory:
-    - `mermaid.min.js`
-    - `mermaid.min.js.map`
+This document is intended for **developers only**. Users should simply install a tagged release of the extension that already contains the bundled `mermaid.min.js`.
 
-2. **Injecting Comment**  
-    A custom script (`inject-nomin.js`) prepends the line `/*@nomin*/` to `mermaid.min.js`.  
-    This comment prevents MediaWiki's ResourceLoader from re-minifying the file.
+
+## How It Works
+
+After running `npm install`, the following occurs:
+
+1. **Library Installation**  
+
+   The version of `mermaid` specified in `package.json` is installed into `node_modules`.
+
+2. **Bundling via Rollup `rollup.config.mjs`**  
+
+   This file includes both the `mermaid` library and extension-specific initialization code to find and render Mermaid diagrams on the page using the global mermaid object.
+
+    Rollup is configured to:
+
+    - Bundle both mermaid and the extension code into a single output file (`resources/mermaid.min.js`)
+    - Use the UMD format, so mermaid becomes available globally
+    - Inline all dependencies (inlineDynamicImports: true)
+    - Minify the output with terser
+
+    This approach ensures that ResourceLoader can treat the final file as a single script without requiring multiple scripts or worrying about load order.
 
 ### To Update `mermaid`
 
 1. Open `package.json` and change the version under `"mermaid"`  
-   (e.g., `"mermaid": "latest"` or a specific version like `"8.14.0"`).
+   (e.g., `"mermaid": "latest"` or a specific version like `"10.9.3"`).
 
 2. Run:
 
