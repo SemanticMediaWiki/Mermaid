@@ -29,15 +29,14 @@
   	},
 	"ResourceModules": {
 		"ext.mermaid": {
-			"scripts": [
-				"resources/ext.mermaid.js",
+			"packageFiles": [
 				"resources/mermaid.min.js"
-			],
-			"dependencies": [
-				"mediawiki.api"
 			],
 			"styles": [
 				"resources/styles/ext.mermaid.css"
+			],
+			"dependencies": [
+				"mediawiki.api"
 			],
 			"messages": [
 				"mermaid-desc"
@@ -50,8 +49,9 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteExtPath": "Mermaid"
+		"remoteExtPath": "Mermaid/resources"
 	},
+
 	"ServiceWiringFiles": [
 		"src/ServiceWiring.php"
 	],
