@@ -1,6 +1,20 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 6.0.0
+
+Released July 7, 2025.
+
+* Upgraded Mermaid.js to version 10.9.3.
+* Updated configMap to align with the official Mermaid.js v10.9.3 configuration.
+* Switched from multiple separate script files to a single bundled file using Rollup, improving load performance and simplifying ResourceLoader configuration.
+* Refactored initialization code: Mermaid library and extension-specific logic are now bundled together in mermaid.min.js.
+* Removed the need for explicit script load ordering by using a single packageFiles entry.
+* Dropped usage of global Mermaid variable exposure; now using ES module import internally and UMD bundle output.
+* Simplified extension configuration and improved maintainability by consolidating scripts.
+* Added more JSONScript test cases.
+* Ensured all existing tests pass successfully with the new bundling approach and Mermaid version.
+
 ### 5.0.2
 
 Released July 2, 2025.
