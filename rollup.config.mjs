@@ -9,8 +9,7 @@ export default {
     file: 'resources/mermaid.min.js',
     format: 'umd',
     name: 'mermaid',
-    inlineDynamicImports: true,
-    sourcemap: true,
+    inlineDynamicImports: true
   },
   plugins: [
     resolve(),
