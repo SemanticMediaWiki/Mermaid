@@ -25,7 +25,6 @@ function decodeHtmlEntities(str) {
 }
 
 async function initMermaid() {
-	debugger;
   if (typeof mermaid === 'undefined') {
     console.error('[Mermaid] Global "mermaid" object not found.');
     return;
@@ -54,7 +53,6 @@ async function initMermaid() {
     const dots = item.children[0];
     if (dots) dots.style.display = 'none';
 
-	debugger;
     try {
       mermaid.initialize({
 		securityLevel: 'loose',
