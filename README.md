@@ -15,10 +15,17 @@ This extension provides the `#mermaid` parser function to support the generation
 - Entity Relationship Diagram
 - Git Flow Chart
 - User Journey Chart
+- Quadrant Chart
+- Requirement Diagram
+- C4 Diagram
+- Timeline Diagram
+- Sankey Diagram
+- XY Chart
+- Block Diagram
 
 ## Requirements
 
-Requirements for Mermaid 4.x:
+Requirements for Mermaid 6.x:
 
 - PHP 7.4 or later
 - MediaWiki 1.39 or later
