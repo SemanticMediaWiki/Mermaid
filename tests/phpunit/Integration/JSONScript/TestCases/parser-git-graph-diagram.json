@@ -1,0 +1,34 @@
+{
+  "description": "Test Mermaid gitGraph diagram",
+  "setup": [
+    {
+      "page": "Mermaid Test/Git Graph Test",
+      "contents": "{{#mermaid:\ngitGraph\n   commit\n   commit\n   branch develop\n   checkout develop\n   commit\n   commit\n   checkout main\n   merge develop\n   commit\n   commit\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid gitGraph data-mermaid attribute content",
+      "subject": "Mermaid Test/Git Graph Test",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;gitGraph",
+          "commit",
+          "branch develop",
+          "checkout develop",
+          "merge develop"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

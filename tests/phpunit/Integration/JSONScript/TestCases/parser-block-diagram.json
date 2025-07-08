@@ -1,0 +1,34 @@
+{
+  "description": "Test Mermaid block-beta diagram",
+  "setup": [
+    {
+      "page": "Mermaid Test/Block Diagram",
+      "contents": "{{#mermaid:\nblock-beta\ncolumns 1\n  db((\"DB\"))\n  blockArrowId6<[\"&nbsp;&nbsp;&nbsp;\"]>(down)\n  block:ID\n    A\n    B[\"A wide one in the middle\"]\n    C\n  end\n  space\n  D\n  ID --> D\n  C --> D\n  style B fill:#969,stroke:#333,stroke-width:4px\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid block-beta data-mermaid attribute",
+      "subject": "Mermaid Test/Block Diagram",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;block-beta",
+          "block:ID",
+          "B&#91;&amp;quot;A wide one in the middle&amp;quot;&#93;",
+          "ID --&amp;gt; D",
+          "style B fill:#969"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

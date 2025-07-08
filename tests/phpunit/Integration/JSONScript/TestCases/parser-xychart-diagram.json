@@ -1,0 +1,35 @@
+{
+  "description": "Test Mermaid xychart-beta diagram",
+  "setup": [
+    {
+      "page": "Mermaid Test/XY Chart Test",
+      "contents": "{{#mermaid:\nxychart-beta\n    title \"Sales Revenue\"\n    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]\n    y-axis \"Revenue (in $)\" 4000 --> 11000\n    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]\n    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid xychart-beta data-mermaid attribute content",
+      "subject": "Mermaid Test/XY Chart Test",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;xychart-beta",
+          "title &amp;quot;Sales Revenue&amp;quot;",
+          "x-axis &#91;jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec&#93;",
+          "y-axis &amp;quot;Revenue (in $)&amp;quot; 4000 --&amp;gt; 11000",
+          "bar &#91;5000, 6000",
+          "line &#91;5000, 6000"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

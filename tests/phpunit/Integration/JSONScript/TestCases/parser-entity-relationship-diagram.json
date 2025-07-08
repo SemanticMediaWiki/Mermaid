@@ -1,0 +1,33 @@
+{
+  "description": "Test Mermaid ER diagram",
+  "setup": [
+    {
+      "page": "Mermaid Test/ER Diagram Test",
+      "contents": "{{#mermaid:\nerDiagram\n    CUSTOMER ||--o{ ORDER : places\n    ORDER ||--|{ LINE-ITEM : contains\n    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid erDiagram data-mermaid attribute content",
+      "subject": "Mermaid Test/ER Diagram Test",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;erDiagram",
+          "CUSTOMER||--o&#123; ORDER : places",
+          "ORDER||--|&#123; LINE-ITEM : contains",
+          "CUSTOMER &#125;|..|&#123; DELIVERY-ADDRESS : uses"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}

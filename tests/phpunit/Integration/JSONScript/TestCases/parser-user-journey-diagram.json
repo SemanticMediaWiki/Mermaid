@@ -1,0 +1,35 @@
+{
+  "description": "Test Mermaid journey diagram rendering",
+  "setup": [
+    {
+      "page": "Mermaid Test/Journey Diagram",
+      "contents": "{{#mermaid:\njourney\n    title My working day\n    section Go to work\n      Make tea: 5: Me\n      Go upstairs: 3: Me\n      Do work: 1: Me, Cat\n    section Go home\n      Go downstairs: 5: Me\n      Sit down: 5: Me\n}}"
+    }
+  ],
+  "tests": [
+    {
+      "type": "parser",
+      "about": "Check Mermaid journey data-mermaid content",
+      "subject": "Mermaid Test/Journey Diagram",
+      "assert-output": {
+        "to-contain": [
+          "data-mermaid=\"&#123;&quot;content&quot;:&quot;journey",
+          "title My working day",
+          "section Go to work",
+          "Make tea: 5: Me",
+          "Do work: 1: Me, Cat",
+          "section Go home"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "wgContLang": "en",
+    "wgLang": "en"
+  },
+  "meta": {
+    "version": "2",
+    "is-incomplete": false,
+    "debug": true
+  }
+}
