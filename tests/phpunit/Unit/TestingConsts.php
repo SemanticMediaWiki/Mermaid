@@ -15,13 +15,13 @@ class TestingConsts {
 			[ [], [ 'A[Hard edge] -->|Link text| B(Round edge)' ] ],
 		], [
 			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.curve=basis' ],
-			[ [ 'theme' => 'foo', 'flowchart' => [ 'curve' => 'basis' ] ], [ 'graph LR;' ] ],
+			[ [ 'theme' => 'foo' ], [ 'graph LR;', 'config.flowchart.curve=basis' ] ],
 		], [
 			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.useMaxWidth=false' ],
-			[ [ 'theme' => 'foo', 'flowchart' => [ 'useMaxWidth' => false ] ], [ 'graph LR;' ] ],
+			[ [ 'theme' => 'foo' ], [ 'graph LR;', 'config.flowchart.useMaxWidth=false' ] ],
 		], [
 			[ 'config.gantt.titleTopMargin=40', 'gantt title A Gantt Diagram' ],
-			[ [ 'gantt' => [ 'titleTopMargin' => '40' ] ], [ 'gantt title A Gantt Diagram' ] ]
+			[ [], [ 'config.gantt.titleTopMargin=40', 'gantt title A Gantt Diagram' ] ]
 		]
 	];
 }
