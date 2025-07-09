@@ -32,7 +32,7 @@ After running `npm install`, the following occurs:
    (e.g., `"mermaid": "latest"` or a specific version like `"10.9.3"`).
 
 2. Open `scripts/generateConfigMap.ts` and change the version under `"version"`  
-   (e.g., specific version like `"v10.9.3"`).
+   (e.g., specific version like `"v10.9.3"` or `"mermaid@11.8.1"`, so it is important to be the same as here https://github.com/mermaid-js/mermaid/releases ).
 
 3. Run:
 
