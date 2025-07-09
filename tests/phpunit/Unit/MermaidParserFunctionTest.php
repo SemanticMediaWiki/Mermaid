@@ -91,7 +91,7 @@ class MermaidParserFunctionTest extends \PHPUnit\Framework\TestCase {
 
 		yield [
 			[ 'graph LR;', 'config.theme=foo', 'config.flowchart.useMaxWidth=false' ],
-			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;,&quot;flowchart&quot;:{&quot;useMaxWidth&quot;:false}}}"><div class="mermaid-dots"></div></div>'
+			'<div class="ext-mermaid" data-mermaid="{&quot;content&quot;:&quot;graph LR;|config.flowchart.useMaxWidth=false&quot;,&quot;config&quot;:{&quot;theme&quot;:&quot;foo&quot;}}"><div class="mermaid-dots"></div></div>'
 		];
 
 	}
