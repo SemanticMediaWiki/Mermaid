@@ -31,7 +31,7 @@ After running `npm install`, the following occurs:
 1. Open `package.json` and change the version under `"mermaid"`  
    (e.g., `"mermaid": "latest"` or a specific version like `"10.9.3"`).
 
-2. Open `scripts/generateConfigMap.ts` and change the version under `"version"`
+2. Open `scripts/generateConfigMap.ts` and change the version under `"version"`  
    (e.g., `"version": "latest"` or a specific version like `"10.9.3"`).
 
 3. Run:
