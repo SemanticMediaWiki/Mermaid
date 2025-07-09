@@ -1,6 +1,23 @@
 This file contains the *release notes* of the **Mermaid** extension. See also the
 [readme], the [installation and configuration information] and [usage examples].
 
+### 6.0.1
+
+Released July 9, 2025.
+ 
+The `$configMap` is now automatically generated from the `Mermaid.js` source, grouped, and type-aware.
+ 
+* Fetches and parses `config.type.ts` from Mermaid.js v10.9.3
+* Recursively extracts all config properties including nested interfaces into a flat dot-notation map
+* Detects boolean properties and assigns FILTER_VALIDATE_BOOLEAN for correct PHP typing
+* Groups configuration keys by diagram prefix (e.g. flowchart, gantt, sequence) with comment headers in the PHP array
+* Automatically updates `src/MermaidConfigExtractor.php` by replacing the `$configMap` block in-place
+* Eliminates manual syncing and reduces risk of human error or outdated configs
+* Improves clarity and maintainability of the config structure
+* Adds more test cases for different types of config keys
+* Simplifies future Mermaid.js upgrades — just update the version in `scripts/generateConfigMap.ts` and regenerate
+* steps how to update `configMap` added to `docs/UPDATEMERMAID.md`
+
 ### 6.0.0
 
 Released July 7, 2025.
