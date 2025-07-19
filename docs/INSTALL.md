@@ -15,7 +15,7 @@ If you do not have a "composer.local.json" file yet, create one and add the foll
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "https://github.com/Octobersama/Mermaid-OTTOWiki.git"
+			"url": "https://github.com/OTTOWiki/Mermaid-OTTOWiki.git"
 		},
 	],
 	"require": {
@@ -35,13 +35,13 @@ If you do not have a "composer.local.json" file yet, create one and add the foll
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/mermaid": "~5.0.2"
+    "mediawiki/mermaid": "~5.0.3"
 
 And add the following to the square brackets of "repositories":
 
     {
 	    "type": "vcs",
-	    "url": "https://github.com/Octobersama/Mermaid-OTTOWiki.git"
+	    "url": "https://github.com/OTTOWiki/Mermaid-OTTOWiki.git"
     }
 
 Remember to add a comma to the end of the preceding line in this section.
