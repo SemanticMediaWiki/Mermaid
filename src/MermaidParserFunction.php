@@ -96,7 +96,8 @@ class MermaidParserFunction {
 				'div',
 				[
 					'class' => 'mermaid-dots',
-				]
+				],
+				"Loading Mermaid graphics... (JavaScript required)"
 			)
 		);
 	}
