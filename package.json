@@ -29,7 +29,7 @@
     ]
   },
   "dependencies": {
-    "mermaid": "10.9.3",
+    "mermaid": "10.9.4",
     "node-fetch": "^2.7.0",
     "ts-morph": "^26.0.0"
   },
