@@ -11,14 +11,14 @@ endif
 EXTENSION=Mermaid
 
 # docker images
-MW_VERSION?=1.39
-PHP_VERSION?=8.1
+MW_VERSION?=1.43
+PHP_VERSION?=8.3
 DB_TYPE?=mysql
 DB_IMAGE?="mariadb:11.2"
 
 # extensions
 # Enables JSONScript tests to be run
-SMW_VERSION?=5.0.2
+SMW_VERSION?=6.0.1
 
 # composer
 # Enables "composer update" inside of extension
