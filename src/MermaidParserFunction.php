@@ -3,7 +3,6 @@
 namespace Mermaid;
 
 use Parser;
-use Html;
 use MediaWiki\MediaWikiServices;
 
 /**
@@ -81,7 +80,13 @@ class MermaidParserFunction {
 		$content = implode( "|", $mwParams );
 		$graphConfig = array_merge( $graphConfig, $mermaidConfig );
 
-		return Html::rawElement(
+		if ( class_exists( 'MediaWiki\\Html\\Html' ) ) {
+			// MW 1.40+
+			$htmlClass = \MediaWiki\Html\Html::class;
+		} else {
+			$htmlClass = \Html::class;
+		}
+		return $htmlClass::rawElement(
 			'div',
 			[
 				'class' => $class,
@@ -92,7 +97,7 @@ class MermaidParserFunction {
 					]
 				)
 			],
-			Html::rawElement(
+			$htmlClass::rawElement(
 				'div',
 				[
 					'class' => 'mermaid-dots',
