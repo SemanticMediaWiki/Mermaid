@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 
 async function generateConfigMap() {
-  const version = 'v10.9.3';
+  const version = 'v10.9.4';
   const url = `https://raw.githubusercontent.com/mermaid-js/mermaid/${version}/packages/mermaid/src/config.type.ts`;
   const response = await fetch(url);
   const sourceCode = await response.text();
