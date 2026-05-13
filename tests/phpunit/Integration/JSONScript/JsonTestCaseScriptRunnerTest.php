@@ -35,7 +35,7 @@ class JsonTestCaseScriptRunnerTest extends JSONScriptTestCaseRunnerTest {
 	 *
 	 * @return array
 	 */
-	protected function getDependencyDefinitions() {
+	protected function getDependencyDefinitions(): array {
 		return [
 			'Mermaid' => [ $this, 'checkMermaidDependency' ]
 		];
