@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"LowensteinYang"
 		]
 	},
-	"mermaid-desc": "提供解析函式以協助產生使用 [https://mermaidjs.github.io/ mermaid] 腳本語言的圖表與流程圖"
+	"mermaid-desc": "提供解析函式以協助使用[https://mermaidjs.github.io/ mermaid]腳本語言來產生圖表與流程圖"
 }
