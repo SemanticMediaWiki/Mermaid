@@ -18,14 +18,14 @@
         "to-contain": [
           "data-mermaid=\"",
           "&quot;content&quot;:&quot;stateDiagram-v2",
-          "state fork_state &amp;lt;&amp;lt;fork&amp;gt;&amp;gt;",
-          "&#91;*&#93; --&amp;gt; fork_state",
-          "fork_state --&amp;gt; State2",
-          "fork_state --&amp;gt; State3",
-          "state join_state &amp;lt;&amp;lt;join&amp;gt;&amp;gt;",
-          "State2 --&amp;gt; join_state",
-          "State3 --&amp;gt; join_state",
-          "join_state --&amp;gt; State4",
+          "state fork&#95;state &amp;lt;&amp;lt;fork&amp;gt;&amp;gt;",
+          "&#91;*&#93; --&amp;gt; fork&#95;state",
+          "fork&#95;state --&amp;gt; State2",
+          "fork&#95;state --&amp;gt; State3",
+          "state join&#95;state &amp;lt;&amp;lt;join&amp;gt;&amp;gt;",
+          "State2 --&amp;gt; join&#95;state",
+          "State3 --&amp;gt; join&#95;state",
+          "join&#95;state --&amp;gt; State4",
           "State4 --&amp;gt; &#91;*&#93;"
         ]
       }
