@@ -14,7 +14,7 @@
       "assert-output": {
         "to-contain": [
           "data-mermaid=\"&#123;&quot;content&quot;:&quot;C4Context",
-          "Enterprise_Boundary(b0",
+          "Enterprise&#95;Boundary(b0",
           "Person(customerA",
           "System(SystemAA",
           "Rel(SystemAA, SystemC, &amp;quot;Sends e-mails&amp;quot;",
