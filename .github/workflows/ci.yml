@@ -35,14 +35,14 @@ jobs:
             smw_version: dev-master
             php_version: 8.3
             database_type: mysql
-            database_image: "mariadb:11.11"
+            database_image: "mariadb:11.8"
             coverage: false
             experimental: false
           - mediawiki_version: '1.45'
             smw_version: dev-master
             php_version: 8.4
             database_type: mysql
-            database_image: "mariadb:11.11"
+            database_image: "mariadb:11.8"
             coverage: false
             experimental: false
 
