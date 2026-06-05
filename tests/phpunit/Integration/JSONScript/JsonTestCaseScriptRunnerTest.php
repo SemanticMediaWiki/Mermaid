@@ -22,11 +22,11 @@ class JsonTestCaseScriptRunnerTest extends JSONScriptTestCaseRunnerTest {
 		Hooks::onParserFirstCallInit( $parser );
 	}
 
-	protected function getTestCaseLocation() {
+	protected function getTestCaseLocation(): string {
 		return __DIR__ . '/TestCases';
 	}
 
-	protected function getPermittedSettings() {
+	protected function getPermittedSettings(): array {
 		return array_merge( parent::getPermittedSettings(), [] );
 	}
 
@@ -35,7 +35,7 @@ class JsonTestCaseScriptRunnerTest extends JSONScriptTestCaseRunnerTest {
 	 *
 	 * @return array
 	 */
-	protected function getDependencyDefinitions() {
+	protected function getDependencyDefinitions(): array {
 		return [
 			'Mermaid' => [ $this, 'checkMermaidDependency' ]
 		];
