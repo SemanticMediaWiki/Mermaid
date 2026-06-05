@@ -20,7 +20,7 @@
           "&quot;content&quot;:&quot;flowchart LR",
           "config.flowchart.htmlLabels = false",
           "markdown",
-          "`This **is** _Markdown_`",
+          "`This **is** &#95;Markdown&#95;`",
           "newLines",
           "`Line1",
           "Line 2",
