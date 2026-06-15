@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"mermaid-desc": "Poskytuje funkciu syntaktického analyzátora na generovanie diagramov a vývojových diagramov pomocou skriptovacieho jazyka [https://mermaidjs.github.io/ mermaid]"
+}
