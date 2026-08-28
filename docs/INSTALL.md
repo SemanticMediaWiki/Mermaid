@@ -10,18 +10,28 @@ The recommended way to install this extension is using [Composer](http://getcomp
     
 If you do not have a "composer.local.json" file yet, create one and add the following content to it:
 
-```
+```json
 {
 	"require": {
 		"mediawiki/mermaid": "~6.0.1"
-	}
+	},
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "extensions/*/composer.json",
+                "skins/*/composer.json"
+            ]
+        }
+    }
 }
 ```
 
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/mermaid": "~6.0.1"
+```json
+"mediawiki/mermaid": "~6.0.1"
+```
 
 Remember to add a comma to the end of the preceding line in this section.
 
@@ -29,27 +39,34 @@ Remember to add a comma to the end of the preceding line in this section.
 
 Run the following command in your shell:
 
-    php composer.phar update --no-dev
+```shell
+php composer.phar update --no-dev
+```
 
 ### Step 3
 
 Add the following line to the end of your "LocalSettings.php" file:
 
-    wfLoadExtension( 'Mermaid' );
-
+```php
+wfLoadExtension( 'Mermaid' );
+```
 
 ## Configuration
 
 One configuration parameter is provided allowing to choose the basic theme for rendering diagrams and charts.
 By default the rendering is set to use the `forest` theme:
 
-    $mermaidgDefaultTheme = 'forest';
+```php
+$mermaidgDefaultTheme = 'forest';
+```
 
 If one would like to use one of the other themes provided (`default`, `neutral` or `dark`) the configuration
 parameter can be set to it after invoking the extension, e.g.:
 
-    wfLoadExtension( 'Mermaid' );  
-    $mermaidgDefaultTheme = 'neutral';
+```php
+wfLoadExtension( 'Mermaid' );  
+$mermaidgDefaultTheme = 'neutral';
+```
 
 [readme]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/README.md
 [release notes]: https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/RELEASE-NOTES.md
