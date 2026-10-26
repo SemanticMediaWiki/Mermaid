@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "mediawiki-mermaid",
-  "version": "10.9.4",
+  "version": "11.6.0",
   "description": "Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams, gantt charts and git graphs.",
   "main": "lib/mermaid.core.js",
   "keywords": [
@@ -29,7 +29,7 @@
     ]
   },
   "dependencies": {
-    "mermaid": "10.9.6",
+    "mermaid": "11.6.0",
     "node-fetch": "^2.7.0",
     "ts-morph": "^26.0.0"
   },
@@ -47,6 +47,7 @@
     "@types/node": "^24.0.12",
     "@types/node-fetch": "^2.6.12",
     "copy-files-from-to": "^3.12.1",
+    "esbuild": "^0.28.2",
     "insert-line": "^1.1.0",
     "rollup": "^4.0.0",
     "tsx": "^4.20.3"
